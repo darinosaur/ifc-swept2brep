@@ -26,33 +26,9 @@ int Cinterpreter::m_getProjects()
 	return Count;
 }
 
-int Cinterpreter::m_getWall(void)
+int Cinterpreter::m_getBuilding(void)
 {
-	SdaiIterator NodeIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcWallStandardCase");
-	while(SdaiInstance STEPNodeInstance = sdaiextGetInstanceByIterator(NodeIterator))
-	{
-     SdaiInstance ObjectPlacementInstance = NULL;
-	 sdaiGetAttrBN(STEPNodeInstance, "ObjectPlacement", sdaiINSTANCE, &ObjectPlacementInstance);
-	 SdaiInstance RelativePlacementInstance = NULL;
-	 sdaiGetAttrBN(ObjectPlacementInstance, "RelativePlacement", sdaiINSTANCE, &RelativePlacementInstance);
-	 SdaiInstance LocationInstance = NULL;
-	 SdaiReal Coords [3] = {0.0, 0.0, 0.0};
-//координаты
-	 sdaiGetAttrBN(RelativePlacementInstance, "Location", sdaiINSTANCE, &LocationInstance);
-	 if(LocationInstance)
-	 {
-	 SdaiIterator CoordIterator = sdaiextGetAttributeIterator(LocationInstance, "Coordinates");
-	   sdaiBeginning(CoordIterator);
-	   sdaiNext(CoordIterator);
-	   sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Coords [0]);
-	   sdaiNext(CoordIterator);
-	   sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Coords [1]);
-	   sdaiNext(CoordIterator);
-	   sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Coords [2]);
-	   sdaiDeleteIterator(CoordIterator);
-	 }
-	}
-	sdaiDeleteIterator(NodeIterator);
+	
 	return true;
 }
 int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
@@ -71,6 +47,8 @@ int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 						Str = UnicodeRead(Str);
 						
 					m_Receiver->m_Function(Str);
+
+					int WallsCount = m_getWall();
 	 }
 	
 	//было наверху
@@ -119,7 +97,7 @@ int Cinterpreter::m_getSite(void)
 }
 
 
-int Cinterpreter::m_getBuilding(void)
+int Cinterpreter::m_getWall(void)
 {
 	//стены
 	 int ItemCount = 0;
