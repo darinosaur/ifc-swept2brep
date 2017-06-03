@@ -1,0 +1,6 @@
+#define TFBEXTERNAL       __declspec ( dllimport )
+#define CRPTOOLSEXTERNAL  __declspec ( dllimport )
+#define CRPSDAIEXTERNAL   __declspec ( dllimport )
+#define STEPKITEXTERNAL   __declspec ( dllimport )
+#define XFIEXTERNAL       __declspec ( dllimport )
+#define STNEXTERNAL       __declspec ( dllimport )

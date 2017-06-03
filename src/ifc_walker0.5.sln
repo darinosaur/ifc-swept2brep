@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ifc_walker0.5", "ifc_walker0.5\ifc_walker0.5.vcxproj", "{140D0588-6039-4743-B2DD-E5A02C699082}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ifc_interpreter", "ifc_interpreter\ifc_interpreter.vcxproj", "{3DF1C48E-FCD7-4D42-9041-B7A271B59E08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{140D0588-6039-4743-B2DD-E5A02C699082}.Debug|Win32.ActiveCfg = Debug|Win32
+		{140D0588-6039-4743-B2DD-E5A02C699082}.Debug|Win32.Build.0 = Debug|Win32
+		{140D0588-6039-4743-B2DD-E5A02C699082}.Release|Win32.ActiveCfg = Release|Win32
+		{140D0588-6039-4743-B2DD-E5A02C699082}.Release|Win32.Build.0 = Release|Win32
+		{3DF1C48E-FCD7-4D42-9041-B7A271B59E08}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DF1C48E-FCD7-4D42-9041-B7A271B59E08}.Debug|Win32.Build.0 = Debug|Win32
+		{3DF1C48E-FCD7-4D42-9041-B7A271B59E08}.Release|Win32.ActiveCfg = Release|Win32
+		{3DF1C48E-FCD7-4D42-9041-B7A271B59E08}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

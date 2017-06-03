@@ -1,0 +1,14 @@
+*.old
+*.user
+*.aps
+_*
+UpgradeLog.XML
+*.ipch
+Debug/
+*.opensdf
+*.vcxproj.filters
+*.sdf
+Release*
+*.suo
+eclipse/
+visualstudio/
