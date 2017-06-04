@@ -1,5 +1,6 @@
 #pragma once
 #include <string>  
+#include <ctime>
 
 namespace ifc_walker05 {
 
@@ -76,9 +77,11 @@ namespace ifc_walker05 {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	public: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::RichTextBox^  richTextBox1;
 	public: 
-	private: System::Windows::Forms::PictureBox^  pictureBox2;
+
+	public: 
+
 
 
 	protected: 
@@ -102,10 +105,7 @@ namespace ifc_walker05 {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox2))->BeginInit();
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -113,7 +113,7 @@ namespace ifc_walker05 {
 			this->button1->BackColor = System::Drawing::Color::Transparent;
 			this->button1->Font = (gcnew System::Drawing::Font(L"HelveticaNeueCyr", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(281, 345);
+			this->button1->Location = System::Drawing::Point(31, 294);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(137, 42);
 			this->button1->TabIndex = 0;
@@ -131,7 +131,7 @@ namespace ifc_walker05 {
 			this->button2->Enabled = false;
 			this->button2->Font = (gcnew System::Drawing::Font(L"HelveticaNeueCyr", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(424, 345);
+			this->button2->Location = System::Drawing::Point(219, 294);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(137, 42);
 			this->button2->TabIndex = 1;
@@ -144,7 +144,7 @@ namespace ifc_walker05 {
 			this->button3->Enabled = false;
 			this->button3->Font = (gcnew System::Drawing::Font(L"HelveticaNeueCyr", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(567, 345);
+			this->button3->Location = System::Drawing::Point(398, 294);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(137, 42);
 			this->button3->TabIndex = 2;
@@ -164,33 +164,27 @@ namespace ifc_walker05 {
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"File Name";
 			// 
-			// pictureBox1
+			// richTextBox1
 			// 
-			this->pictureBox1->BackColor = System::Drawing::Color::White;
-			this->pictureBox1->Location = System::Drawing::Point(31, 52);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(330, 272);
-			this->pictureBox1->TabIndex = 4;
-			this->pictureBox1->TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::White;
-			this->pictureBox2->Location = System::Drawing::Point(377, 52);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(327, 272);
-			this->pictureBox2->TabIndex = 5;
-			this->pictureBox2->TabStop = false;
+			this->richTextBox1->BackColor = System::Drawing::SystemColors::InfoText;
+			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Courier New", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(204)));
+			this->richTextBox1->ForeColor = System::Drawing::SystemColors::Info;
+			this->richTextBox1->Location = System::Drawing::Point(31, 52);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(504, 226);
+			this->richTextBox1->TabIndex = 4;
+			this->richTextBox1->Text = L"All rights reserved by me (C)";
+			this->richTextBox1->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::richTextBox1_MouseClick);
+			this->richTextBox1->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::richTextBox1_MouseDoubleClick);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(0)), 
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->ClientSize = System::Drawing::Size(732, 408);
-			this->Controls->Add(this->pictureBox2);
-			this->Controls->Add(this->pictureBox1);
+			this->BackColor = System::Drawing::Color::Teal;
+			this->ClientSize = System::Drawing::Size(571, 359);
+			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -199,8 +193,6 @@ namespace ifc_walker05 {
 			this->Name = L"Form1";
 			this->Text = L"Дипломный проект Гусева Д.В. РК9-82";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -257,7 +249,14 @@ namespace ifc_walker05 {
 	  if(OpenRepository(NAMERPD)) 
 		{
 			  button2->Enabled = true;
-			   button3->Enabled = true;
+			   button3->Enabled = true;/*
+			   char buffer[80];
+			time_t seconds = time(NULL);
+			tm* timeinfo = localtime(&seconds);
+			char* format = "%H:%M:%S";
+			strftime(buffer, 80, format, timeinfo);*/
+			   char *currentTime = getCurrentTime();
+			   this->richTextBox1->Text =and_CharToSysString(currentTime) + "    Session is succesfully opened";
 		}
 				 //передача строки через файл
 			 }
@@ -306,7 +305,7 @@ namespace ifc_walker05 {
 	}
 	
 				int i =  ReadSTEPFile(NAMEIFC);
-			
+			this->richTextBox1->Text += "\n" + and_CharToSysString(getCurrentTime()) + "    IFC File is opened";
 }
 		//	 }
 			 
@@ -318,6 +317,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 			 if (Intermediate)
 			 {
 				 this->label1->Text = and_CharToSysString(Intermediate->Title);
+				 this->richTextBox1->Text += "\n" + and_CharToSysString(getCurrentTime()) + "    Project name is " + and_CharToSysString(Intermediate->Title);
 			 }
 		
 		
@@ -326,6 +326,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 			 //
 		 }
 
+		 
 		 System::String^  and_CharToSysString(char* ch)  //функция переводящая чар в системный стринг
 		{
 		char * chr=new char[]=ch;
@@ -334,7 +335,26 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		return str;
 		}
 
+
+private: System::Void richTextBox1_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+			 this->richTextBox1->Text += "\n Do not click";
+		 }
+private: System::Void richTextBox1_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+			 this->richTextBox1->Text += "\n Do not double click";
+		 }
+
+char* getCurrentTime()
+{
+			char * buffer = new char[80];
+			time_t seconds = time(NULL);
+			tm* timeinfo = localtime(&seconds);
+			char* format = "%H:%M:%S";
+			strftime(buffer, 80, format, timeinfo);
+
+			return buffer;
+}
 };	
+
 
 
 }
