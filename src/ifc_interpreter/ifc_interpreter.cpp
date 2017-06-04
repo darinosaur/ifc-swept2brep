@@ -68,103 +68,103 @@ BOOL Cifc_interpreterApp::InitInstance()
 
 bool OpenRepository(char *IFCName)
 {
-int Pos = 0;
-for(Pos = 127; Pos > 0;Pos--)
-{
-if(IFCName[Pos] == '/')break;
-if(IFCName[Pos] == '\\')break;
-IFCName[Pos] = 0;
-}
-char STEPPath [128];
-memset(STEPPath,0,128);
-for(Pos = 0; Pos<127; Pos++)
-STEPPath[Pos] = IFCName[Pos];
-//
-   STEPSetWorkPath(IFCName);
-   SdaiSession STEPSession = STEPStart();
-   if(STEPSession > 0)
-   {
-    Interpreter = new Cinterpreter;
-	if(Interpreter)
+	int Pos = 0;
+	for(Pos = 127; Pos > 0;Pos--)
 	{
-	 Interpreter->m_STEPSession = STEPSession;
+		if(IFCName[Pos] == '/')break;
+		if(IFCName[Pos] == '\\')break;
+		IFCName[Pos] = 0;
 	}
-    return true;
-   }
-   else
-    return false;
+	char STEPPath [128];
+	memset(STEPPath,0,128);
+	for(Pos = 0; Pos<127; Pos++)
+		STEPPath[Pos] = IFCName[Pos];
+	//
+	STEPSetWorkPath(IFCName);
+	SdaiSession STEPSession = STEPStart();
+	if(STEPSession > 0)
+	{
+		Interpreter = new Cinterpreter;
+		if(Interpreter)
+		{
+			Interpreter->m_STEPSession = STEPSession;
+		}
+		return true;
+	}
+	else
+		return false;
 }
 
 int ReadSTEPFile(char *IFCName)
 {
 	// Interpreter = new Cinterpreter;
-	 CInvariantXFI* InvariantXFI = CreateInvariantXFIForRead(IFCName);
-	 
-	
-//
-// Если файл удалось открыть:
-//
-   if(InvariantXFI)
-   {
-    InvariantXFI->m_Repository = sdaiOpenRepositoryBN(Interpreter->m_STEPSession, "sdai00.rp");
-	   Interpreter->m_HeaderModel = InvariantXFI->m_ReadHeader();
-	   if ( Interpreter->m_HeaderModel > 0)
-	   {
-	    SdaiIterator Iterator = sdaiextGetExtentIterator(Interpreter->m_HeaderModel, "file_schema");
-		while (SdaiInstance FileSchema = sdaiextGetInstanceByIterator(Iterator))
+	CInvariantXFI* InvariantXFI = CreateInvariantXFIForRead(IFCName);
+
+
+	//
+	// Если файл удалось открыть:
+	//
+	if(InvariantXFI)
+	{
+		InvariantXFI->m_Repository = sdaiOpenRepositoryBN(Interpreter->m_STEPSession, "sdai00.rp");
+		Interpreter->m_HeaderModel = InvariantXFI->m_ReadHeader();
+		if ( Interpreter->m_HeaderModel > 0)
 		{
-			SdaiIterator NestedIterator = sdaiextGetAttributeIterator(FileSchema,"schema_identifiers");
-			while(char* Description = sdaiextGetStringByIterator(NestedIterator))
+			SdaiIterator Iterator = sdaiextGetExtentIterator(Interpreter->m_HeaderModel, "file_schema");
+			while (SdaiInstance FileSchema = sdaiextGetInstanceByIterator(Iterator))
 			{
-			 CString SchemaNameString = Description; 
-			 SdaiSchema Schema = sdaiGetSchema(SchemaNameString.GetBuffer());
-			 if(Schema > 0)
-			 {
-              InvariantXFI->m_ReadSchemaNameFromFile();
-			  SdaiModel Model = InvariantXFI->m_ReadXF();
-			  if (Model > 0) 
-				 {
-					 Interpreter->m_STEPModel = Model;
-				 }
-			 }
-			 else
-			 {
-				 SdaiModel Model = sdaiCreateModelBN(InvariantXFI->m_Repository,"imported","IFC4");
-				 InvariantXFI->m_CurrentSDAIModel = Model;
-				 Model = InvariantXFI->m_ReadXF();
-				 if (Model > 0) 
-				 {
-					 Interpreter->m_STEPModel = Model;
-				 }
-				 int i = 6;
-				 //хитрая проверка, потом
-			 }
-			}
-			
-		} 
-	
-	   }
+				SdaiIterator NestedIterator = sdaiextGetAttributeIterator(FileSchema,"schema_identifiers");
+				while(char* Description = sdaiextGetStringByIterator(NestedIterator))
+				{
+					CString SchemaNameString = Description; 
+					SdaiSchema Schema = sdaiGetSchema(SchemaNameString.GetBuffer());
+					if(Schema > 0)
+					{
+						InvariantXFI->m_ReadSchemaNameFromFile();
+						SdaiModel Model = InvariantXFI->m_ReadXF();
+						if (Model > 0) 
+						{
+							Interpreter->m_STEPModel = Model;
+						}
+					}
+					else
+					{
+						SdaiModel Model = sdaiCreateModelBN(InvariantXFI->m_Repository,"imported","IFC4");
+						InvariantXFI->m_CurrentSDAIModel = Model;
+						Model = InvariantXFI->m_ReadXF();
+						if (Model > 0) 
+						{
+							Interpreter->m_STEPModel = Model;
+						}
+						int i = 6;
+						//хитрая проверка, потом
+					}
+				}
 
-	
-//
-// Завершение:
-//
-    if(Interpreter->m_STEPModel)
-    {
-     SdaiSchema SchemaOfLoadedModel = 0;
-     sdaiGetAttrBN
-      (Interpreter->m_STEPModel,"underlying_schema", sdaiINSTANCE,&SchemaOfLoadedModel);
-    Interpreter->m_STEPSchemaInstance = sdaiCreateSchemaInstance("S1", SchemaOfLoadedModel, InvariantXFI->m_Repository);
-    sdaiAddModel(Interpreter->m_STEPSchemaInstance, Interpreter->m_STEPModel);
-    }
-    DeleteInvariantXFI(InvariantXFI);	
-//
-// Теперь надо заполнить список
-//
-//	m_FillNodeList();
+			} 
 
-	return 0;
-   }
+		}
+
+
+		//
+		// Завершение:
+		//
+		if(Interpreter->m_STEPModel)
+		{
+			SdaiSchema SchemaOfLoadedModel = 0;
+			sdaiGetAttrBN
+				(Interpreter->m_STEPModel,"underlying_schema", sdaiINSTANCE,&SchemaOfLoadedModel);
+			Interpreter->m_STEPSchemaInstance = sdaiCreateSchemaInstance("S1", SchemaOfLoadedModel, InvariantXFI->m_Repository);
+			sdaiAddModel(Interpreter->m_STEPSchemaInstance, Interpreter->m_STEPModel);
+		}
+		DeleteInvariantXFI(InvariantXFI);	
+		//
+		// Теперь надо заполнить список
+		//
+		//	m_FillNodeList();
+
+		return 0;
+	}
 }
 
 int getProjects(Creceiver *Receiver)
@@ -173,10 +173,10 @@ int getProjects(Creceiver *Receiver)
 	int Check = 0;
 	if (Interpreter)
 	{
-	Interpreter->m_Receiver = Receiver;
-	 
-     Count = Interpreter->m_getProjects();
-	 Check = Interpreter->m_getBuilding();
+		Interpreter->m_Receiver = Receiver;
+
+		Count = Interpreter->m_getProjects();
+		Check = Interpreter->m_getBuilding();
 	}
 	//возвращаем кол-во проектов (счетчик)
 	return Count;

@@ -8,17 +8,17 @@ SdaiString UnicodeRead(SdaiString UniCode)
 {
 	SdaiString toRusString = new char[1024];
 	//
-	
+
 	unsigned int DigitalValue = 0; 
 	int i = 0; //место в выходной строке
 	memset(toRusString,0,1024);
-	
+
 	int index = 0;
 	for (; index < 1024 ; index++)
 	{
-		
-	if ((UniCode[index+1] == 'X')&&(UniCode[index+2] == '2'))
-		
+
+		if ((UniCode[index+1] == 'X')&&(UniCode[index+2] == '2'))
+
 			//UnicodeTranslater(UniCode, index + 4)
 			for (int pos1 = index + 5;;)
 				//
@@ -39,24 +39,24 @@ SdaiString UnicodeRead(SdaiString UniCode)
 					break;
 				}
 			}
-			else
-				{
-					index = 1024;
-					break;
-				}
-					}
-				
-			
-			
-		
-	
+		else
+		{
+			index = 1024;
+			break;
+		}
+	}
+
+
+
+
+
 	return toRusString;
 }
 
 unsigned int UnicodeToInt(char Up, char Mid, char Down)
 {
 	unsigned int DigitalValue = 0;
-	
+
 	switch(Up)
 	{
 	case '0':
@@ -140,7 +140,7 @@ unsigned int UnicodeToInt(char Up, char Mid, char Down)
 		}
 		break;
 	}
-		switch(Mid)
+	switch(Mid)
 	{
 	case '0':
 		{
@@ -223,8 +223,8 @@ unsigned int UnicodeToInt(char Up, char Mid, char Down)
 		break;
 
 	}
-		
-		DigitalValue *= 16;
+
+	DigitalValue *= 16;
 
 	switch(Down)
 	{
@@ -311,7 +311,7 @@ unsigned int UnicodeToInt(char Up, char Mid, char Down)
 	}
 	return DigitalValue;
 }
-	
+
 
 
 char UnicodeGetLetter(unsigned int DigitalValue)
@@ -649,11 +649,11 @@ char UnicodeGetLetter(unsigned int DigitalValue)
 			UnicodeLetter = '!';
 		}
 		break;
-	//case 34:
-	//	{
-	//		UnicodeLetter = ''';
-	//	}
-	//	break;
+		//case 34:
+		//	{
+		//		UnicodeLetter = ''';
+		//	}
+		//	break;
 	case 35:
 		{
 			UnicodeLetter = '#';
@@ -674,9 +674,9 @@ char UnicodeGetLetter(unsigned int DigitalValue)
 			UnicodeLetter = '&';
 		}
 		break;
-	/*case 39:
+		/*case 39:
 		{
-			UnicodeLetter = ''';
+		UnicodeLetter = ''';
 		}
 		break;*/
 	case 40:
@@ -939,9 +939,9 @@ char UnicodeGetLetter(unsigned int DigitalValue)
 			UnicodeLetter = '[';
 		}
 		break;
-	/*case 92:
+		/*case 92:
 		{
-			UnicodeLetter = '\';
+		UnicodeLetter = '\';
 		}
 		break;*/
 	case 93:

@@ -17,45 +17,45 @@ namespace ifc_walker05 {
 	/// Summary for Form1
 	/// </summary>	
 
-	 class Cintermediate
+	class Cintermediate
 	{
 	public:
 		Cintermediate(void){
 			Title = nullptr;};
-		char* Title;
+			char* Title;
 	};
 
 
 	Cintermediate* Intermediate = nullptr;
 
 	char* setProjectTitle(SdaiString Str)
+	{
+
+		char* r = "t";
+
+		if(Intermediate)
 		{
-			
-			char* r = "t";
-	
-			if(Intermediate)
-			{
-             Intermediate->Title = new char [25];
+			Intermediate->Title = new char [25];
 			for (unsigned i=0; i<24; ++i)
-			 {
-				 Intermediate->Title [i]  = Str[i];
+			{
+				Intermediate->Title [i]  = Str[i];
 			}
-			
-			 Intermediate->Title [24] =  0;
-			 
-			}
-			return r;
-			
+
+			Intermediate->Title [24] =  0;
+
 		}
+		return r;
+
+	}
 
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	public:
-		
+
 		Form1(void)
 		{
 			InitializeComponent();
-		//	GlobalForm = this;
+			//	GlobalForm = this;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -202,158 +202,153 @@ namespace ifc_walker05 {
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 			 }
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				char NAMERPD [128];
-				memset(NAMERPD, 0, 128);
-				OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+				 char NAMERPD [128];
+				 memset(NAMERPD, 0, 128);
+				 OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 
-				openFileDialog1->InitialDirectory = "c:\\";
+				 openFileDialog1->InitialDirectory = "c:\\";
 				 openFileDialog1->Filter = "RPD files (*.rpd)|*.rpd|All files (*.*)|*.*";
-				openFileDialog1->FilterIndex = 2;
-				openFileDialog1->RestoreDirectory = true;
+				 openFileDialog1->FilterIndex = 2;
+				 openFileDialog1->RestoreDirectory = true;
 
-      if ( openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK )
-      {
-		  
-//		   string FlNm = openFileDialog1->FileName;
-		   //memcpy ((const char*)&NAMEIFC[0], FlNm, strlen(FlNm)); 
-		   int size = 10;
-		 //  String s = openFileDialog1->FileName.get();
-		   for(size = 0; size < 128;size++)
-		   {
-			   char WhatIs = openFileDialog1->FileName[size];
-			   if(openFileDialog1->FileName[size] == 'r' || openFileDialog1->FileName[size] == 'R')
-			   {
-				   size++;
-				   if(openFileDialog1->FileName[size] == 'p' || openFileDialog1->FileName[size] == 'P')
-				   {size++;
-				   if(openFileDialog1->FileName[size] == 'd' || openFileDialog1->FileName[size] == 'D')
-					   {
-						   size++;
-							break;
-				   }
-				   }
-				   
-			   }
-		   }
-		   for(int i = 0; i < size; i++)
-		   {
+				 if ( openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK )
+				 {
 
-			   NAMERPD[i] = openFileDialog1->FileName[i];
-		   }
-		   
-         
-//            myStream->Close();
-		   }
-	
-			//
-	  if(OpenRepository(NAMERPD)) 
-		{
-			  button2->Enabled = true;
-			   button3->Enabled = true;/*
-			   char buffer[80];
-			time_t seconds = time(NULL);
-			tm* timeinfo = localtime(&seconds);
-			char* format = "%H:%M:%S";
-			strftime(buffer, 80, format, timeinfo);*/
-			   char *currentTime = getCurrentTime();
-			   this->richTextBox1->Text =and_CharToSysString(currentTime) + "    Session is succesfully opened";
-		}
+					 //		   string FlNm = openFileDialog1->FileName;
+					 //memcpy ((const char*)&NAMEIFC[0], FlNm, strlen(FlNm)); 
+					 int size = 10;
+					 //  String s = openFileDialog1->FileName.get();
+					 for(size = 0; size < 128;size++)
+					 {
+						 char WhatIs = openFileDialog1->FileName[size];
+						 if(openFileDialog1->FileName[size] == 'r' || openFileDialog1->FileName[size] == 'R')
+						 {
+							 size++;
+							 if(openFileDialog1->FileName[size] == 'p' || openFileDialog1->FileName[size] == 'P')
+							 {size++;
+							 if(openFileDialog1->FileName[size] == 'd' || openFileDialog1->FileName[size] == 'D')
+							 {
+								 size++;
+								 break;
+							 }
+							 }
+
+						 }
+					 }
+					 for(int i = 0; i < size; i++)
+					 {
+
+						 NAMERPD[i] = openFileDialog1->FileName[i];
+					 }
+
+
+					 //            myStream->Close();
+				 }
+
+				 //
+				 if(OpenRepository(NAMERPD)) 
+				 {
+					 button2->Enabled = true;
+					 button3->Enabled = true;
+					 char *currentTime = getCurrentTime();
+					 this->richTextBox1->Text =and_CharToSysString(currentTime) + "    Session is succesfully opened";
+				 }
 				 //передача строки через файл
 			 }
 
 
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-				
+
 				 char NAMEIFC [128];
-				memset(NAMEIFC, 0, 128);
-				//сделать зависимости промежуточной длл и верхнего файла
-//				 Stream^ myStream;
-				OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
+				 memset(NAMEIFC, 0, 128);
+				 //сделать зависимости промежуточной длл и верхнего файла
+				 //				 Stream^ myStream;
+				 OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog;
 
-				openFileDialog1->InitialDirectory = "c:\\";
+				 openFileDialog1->InitialDirectory = "c:\\";
 				 openFileDialog1->Filter = "IFC files (*.ifc)|*.ifc|All files (*.*)|*.*";
-				openFileDialog1->FilterIndex = 2;
-				openFileDialog1->RestoreDirectory = true;
+				 openFileDialog1->FilterIndex = 2;
+				 openFileDialog1->RestoreDirectory = true;
 
-      if ( openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK )
-      {
-		   int size = 10;
-		   for(size = 0; size < 128;size++)
-		   {
-			   char WhatIs = openFileDialog1->FileName[size];
-			   if(openFileDialog1->FileName[size] == 'i' || openFileDialog1->FileName[size] == 'I')
-			   {
-				   size++;
-				   if(openFileDialog1->FileName[size] == 'f' || openFileDialog1->FileName[size] == 'F')
-				   {
-					   size++;
-					   if(openFileDialog1->FileName[size] == 'c' || openFileDialog1->FileName[size] == 'C')
-						   {
-							   size++;
-								break;
-						   }
-				   }
-			   }
-		   }
-			
-		   for(int i = 0; i < size; i++)
-			{
+				 if ( openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK )
+				 {
+					 int size = 10;
+					 for(size = 0; size < 128;size++)
+					 {
+						 char WhatIs = openFileDialog1->FileName[size];
+						 if(openFileDialog1->FileName[size] == 'i' || openFileDialog1->FileName[size] == 'I')
+						 {
+							 size++;
+							 if(openFileDialog1->FileName[size] == 'f' || openFileDialog1->FileName[size] == 'F')
+							 {
+								 size++;
+								 if(openFileDialog1->FileName[size] == 'c' || openFileDialog1->FileName[size] == 'C')
+								 {
+									 size++;
+									 break;
+								 }
+							 }
+						 }
+					 }
 
-				NAMEIFC[i] = openFileDialog1->FileName[i];
-			}
-		   
-	}
-	
-				int i =  ReadSTEPFile(NAMEIFC);
-			this->richTextBox1->Text += "\n" + and_CharToSysString(getCurrentTime()) + "    IFC File is opened";
-}
-		//	 }
-			 
-private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-			  Creceiver Receiver;
-			  Receiver.m_Function = setProjectTitle;
-			 Intermediate = new Cintermediate;
-			 int t = getProjects(&Receiver);
-			 if (Intermediate)
-			 {
-				 this->label1->Text = and_CharToSysString(Intermediate->Title);
-				 this->richTextBox1->Text += "\n" + and_CharToSysString(getCurrentTime()) + "    Project name is " + and_CharToSysString(Intermediate->Title);
+					 for(int i = 0; i < size; i++)
+					 {
+
+						 NAMEIFC[i] = openFileDialog1->FileName[i];
+					 }
+
+				 }
+
+				 int i =  ReadSTEPFile(NAMEIFC);
+				 this->richTextBox1->Text += "\n" + and_CharToSysString(getCurrentTime()) + "    IFC File is opened";
 			 }
-		
-		
-		 }
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-			 //
-		 }
+			 //	 }
 
-		 
-		 System::String^  and_CharToSysString(char* ch)  //функция переводящая чар в системный стринг
-		{
-		char * chr=new char[]=ch;
-		System::String^ str = gcnew String(ch);
-
-		return str;
-		}
+	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Creceiver Receiver;
+				 Receiver.m_Function = setProjectTitle;
+				 Intermediate = new Cintermediate;
+				 int t = getProjects(&Receiver);
+				 if (Intermediate)
+				 {
+					 this->label1->Text = and_CharToSysString(Intermediate->Title);
+					 this->richTextBox1->Text += "\n" + and_CharToSysString(getCurrentTime()) + "    Project name is " + and_CharToSysString(Intermediate->Title);
+				 }
 
 
-private: System::Void richTextBox1_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-			 this->richTextBox1->Text += "\n Do not click";
-		 }
-private: System::Void richTextBox1_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-			 this->richTextBox1->Text += "\n Do not double click";
-		 }
+			 }
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+				 //
+			 }
 
-char* getCurrentTime()
-{
-			char * buffer = new char[80];
-			time_t seconds = time(NULL);
-			tm* timeinfo = localtime(&seconds);
-			char* format = "%H:%M:%S";
-			strftime(buffer, 80, format, timeinfo);
 
-			return buffer;
-}
-};	
+			 System::String^  and_CharToSysString(char* ch)  //функция переводящая чар в системный стринг
+			 {
+				 char * chr=new char[]=ch;
+				 System::String^ str = gcnew String(ch);
+
+				 return str;
+			 }
+
+
+	private: System::Void richTextBox1_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+				 this->richTextBox1->Text += "\n Do not click";
+			 }
+	private: System::Void richTextBox1_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+				 this->richTextBox1->Text += "\n Do not double click";
+			 }
+
+			 char* getCurrentTime()
+			 {
+				 char * buffer = new char[80];
+				 time_t seconds = time(NULL);
+				 tm* timeinfo = localtime(&seconds);
+				 char* format = "%H:%M:%S";
+				 strftime(buffer, 80, format, timeinfo);
+
+				 return buffer;
+			 }
+	};	
 
 
 

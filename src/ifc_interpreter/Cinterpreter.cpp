@@ -15,13 +15,13 @@ Cinterpreter::~Cinterpreter(void)
 
 int Cinterpreter::m_getProjects()
 {
-		int Count = 0;
-		SdaiIterator ProjectIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcProject");
-		while (SdaiInstance IFCProjectInstance = sdaiextGetInstanceByIterator(ProjectIterator))
-		{
-			Count++;
-			m_getProject(IFCProjectInstance);
-		}
+	int Count = 0;
+	SdaiIterator ProjectIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcProject");
+	while (SdaiInstance IFCProjectInstance = sdaiextGetInstanceByIterator(ProjectIterator))
+	{
+		Count++;
+		m_getProject(IFCProjectInstance);
+	}
 	return Count;
 }
 
@@ -33,21 +33,21 @@ int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 {
 	if(IFCProjectInstance)
 	{
-		 /*if (m_Receiver && m_Receiver->m_Function)
+		/*if (m_Receiver && m_Receiver->m_Function)
 		m_Receiver->m_Function;*/
 		// SdaiIterator RootIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcRoot");
 
 		SdaiString Str = nullptr;
-							
+
 		sdaiGetAttrBN(IFCProjectInstance, "Name", sdaiSTRING, &Str);
 		Str = UnicodeRead(Str);
-						
+
 		m_Receiver->m_Function(Str);
 
 		int WallsCount = m_getWall();
-	 }
-	
-	
+	}
+
+
 	return 0;
 }
 
@@ -73,7 +73,7 @@ int Cinterpreter::m_getWall(void)
 		SdaiInstance LocationInstance = NULL;
 		SdaiReal Coords [3] = {0.0, 0.0, 0.0};//координаты начальной точки
 		sdaiGetAttrBN(RelativePlacementInstance, "Location", sdaiINSTANCE, &LocationInstance);
-		
+
 		if( LocationInstance )
 		{
 			SdaiIterator CoordIterator = sdaiextGetAttributeIterator(LocationInstance, "Coordinates");
@@ -86,11 +86,11 @@ int Cinterpreter::m_getWall(void)
 			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Coords [2]);
 			sdaiDeleteIterator(CoordIterator);
 		}
-	 //направление
+		//направление
 		SdaiInstance RefDirectionInstance = NULL;
 		SdaiReal Directions [2] = {1.0, 0.0};
 		sdaiGetAttrBN(RelativePlacementInstance, "RefDirection", sdaiINSTANCE, &RefDirectionInstance);
-	 
+
 		if( RefDirectionInstance )
 		{
 			SdaiIterator DirectionIterator = sdaiextGetAttributeIterator(RefDirectionInstance, "DirectionRatios");
@@ -101,8 +101,8 @@ int Cinterpreter::m_getWall(void)
 			sdaiGetAggrByIterator(DirectionIterator, sdaiREAL, &Directions [1]);
 			sdaiDeleteIterator(DirectionIterator);
 		}
-	// sdaiNext(NodeIterator);
-	
+		// sdaiNext(NodeIterator);
+
 		SdaiInstance RepresentationInstance = NULL;
 		sdaiGetAttrBN(STEPNodeInstance, "Representation", sdaiINSTANCE, &RepresentationInstance);
 		SdaiIterator RepresentationIterator = sdaiextGetAttributeIterator(RepresentationInstance, "Representations");
@@ -120,7 +120,7 @@ int Cinterpreter::m_getWall(void)
 		sdaiGetAttrBN(ExtrudedAreaInstance, "SweptArea", sdaiINSTANCE, &SweptAreaInstance);
 		SdaiReal Length = 0.0;
 		sdaiGetAttrBN(SweptAreaInstance, "XDim", sdaiREAL, &Length);//длина
-									 
+
 		sdaiDeleteIterator(ItemsIterator);
 		sdaiDeleteIterator(RepresentationIterator);
 		ItemCount++;
