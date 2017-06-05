@@ -1,5 +1,6 @@
 #pragma once
 #include "Creceiver.h"
+#include "CifcWallSweptSolid.h"
 
 class Cinterpreter
 {

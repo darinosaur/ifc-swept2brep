@@ -39,6 +39,9 @@
     <ClCompile Include="unicodeReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CifcWallSweptSolid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ifc_interpreter.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="unicodeReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CifcWallSweptSolid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
