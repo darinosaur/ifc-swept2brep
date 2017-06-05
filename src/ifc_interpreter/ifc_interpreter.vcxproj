@@ -101,6 +101,7 @@
     <None Include="res\ifc_interpreter.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Users\Владимир\Desktop\ifc-write-test-master\ifc-write-test-master\src\Point3d.cpp" />
     <ClCompile Include="CifcWallSweptSolid.cpp" />
     <ClCompile Include="Cinterpreter.cpp" />
     <ClCompile Include="Creceiver.cpp" />
@@ -112,6 +113,7 @@
     <ClCompile Include="unicodeReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Users\Владимир\Desktop\ifc-write-test-master\ifc-write-test-master\src\Point3d.h" />
     <ClInclude Include="CifcWallSweptSolid.h" />
     <ClInclude Include="Cinterpreter.h" />
     <ClInclude Include="Creceiver.h" />

@@ -42,6 +42,9 @@
     <ClCompile Include="CifcWallSweptSolid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Users\Владимир\Desktop\ifc-write-test-master\ifc-write-test-master\src\Point3d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ifc_interpreter.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CifcWallSweptSolid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Users\Владимир\Desktop\ifc-write-test-master\ifc-write-test-master\src\Point3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
