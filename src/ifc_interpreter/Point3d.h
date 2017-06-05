@@ -54,11 +54,15 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const Point3d& p);
 
+	//Face createFace(Point3d P1,);
 };
 
 
 struct Face {
-	Point3d Verts [4];
+	Point3d P1;
+	Point3d P2;
+	Point3d P3;
+	Point3d P4;
 };
 
 

@@ -1,9 +1,9 @@
-﻿Build started 06.06.2017 0:48:22.
+﻿Build started 06.06.2017 1:27:35.
      1>Project "C:\constrData\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\ifc_interpreter.lastbuildstate".
        InitializeBuildStatus:
-         Touching "Debug\ifc_interpreter.unsuccessfulbuild".
+         Creating "Debug\ifc_interpreter.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /Iinclude2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\ifc_interpreter.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
          stdafx.cpp
@@ -28,9 +28,10 @@
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(18) : see previous definition of 'm_getSite'
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(63): warning C4273: 'Cinterpreter::m_getWall' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(20) : see previous definition of 'm_getWall'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(137): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(138): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(21) : see previous definition of 'm_getStorey'
          CifcWallSweptSolid.cpp
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cifcwallsweptsolid.cpp(33): warning C4018: '<' : signed/unsigned mismatch
          Generating Code...
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.cpp(168): warning C4715: 'ReadSTEPFile' : not all control paths return a value
        ResourceCompile:
@@ -72,4 +73,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.81
+Time Elapsed 00:00:07.14

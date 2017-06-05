@@ -128,6 +128,7 @@ int Cinterpreter::m_getWall(void)
 		sdaiDeleteIterator(RepresentationIterator);
 		ItemCount++;
 
+		std::vector<Face> TESTIK = Wall->getFaces();
 	}
 	sdaiDeleteIterator(WallIterator);
 	return ItemCount;

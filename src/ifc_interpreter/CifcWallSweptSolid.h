@@ -18,7 +18,7 @@ public:
 	SdaiReal wallDirection[2];
 	SdaiString wallEdgeType;
 
-	/*std::vector<Face> getFaces();*/
+	std::vector<Face> getFaces();
 
 };
 
