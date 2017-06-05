@@ -101,11 +101,11 @@
     <None Include="res\ifc_interpreter.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Users\Владимир\Desktop\ifc-write-test-master\ifc-write-test-master\src\Point3d.cpp" />
     <ClCompile Include="CifcWallSweptSolid.cpp" />
     <ClCompile Include="Cinterpreter.cpp" />
     <ClCompile Include="Creceiver.cpp" />
     <ClCompile Include="ifc_interpreter.cpp" />
+    <ClCompile Include="Point3d.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -113,12 +113,12 @@
     <ClCompile Include="unicodeReader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Users\Владимир\Desktop\ifc-write-test-master\ifc-write-test-master\src\Point3d.h" />
     <ClInclude Include="CifcWallSweptSolid.h" />
     <ClInclude Include="Cinterpreter.h" />
     <ClInclude Include="Creceiver.h" />
     <ClInclude Include="IFCInterpreterInterface.h" />
     <ClInclude Include="ifc_interpreter.h" />
+    <ClInclude Include="Point3d.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

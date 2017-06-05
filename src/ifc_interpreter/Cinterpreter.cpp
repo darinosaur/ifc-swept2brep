@@ -80,11 +80,11 @@ int Cinterpreter::m_getWall(void)
 			SdaiIterator CoordIterator = sdaiextGetAttributeIterator(LocationInstance, "Coordinates");
 			sdaiBeginning(CoordIterator);
 			sdaiNext(CoordIterator);
-			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Wall->startCoordinates[0]);
+			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Wall->startCoordinates.x);
 			sdaiNext(CoordIterator);
-			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Wall->startCoordinates[1]);
+			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Wall->startCoordinates.y);
 			sdaiNext(CoordIterator);
-			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Wall->startCoordinates[2]);
+			sdaiGetAggrByIterator(CoordIterator, sdaiREAL, &Wall->startCoordinates.z);
 			sdaiDeleteIterator(CoordIterator);
 		}
 		//направление

@@ -13,3 +13,9 @@ CifcWallSweptSolid::CifcWallSweptSolid(void)
 CifcWallSweptSolid::~CifcWallSweptSolid(void)
 {
 }
+
+//std::vector<Face> CifcWallSweptSolid::getFaces()
+//{
+//
+//
+//}

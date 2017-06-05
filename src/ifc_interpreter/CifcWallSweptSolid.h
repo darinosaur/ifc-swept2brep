@@ -1,4 +1,8 @@
 #pragma once
+
+#include <vector>
+#include "Point3d.h"
+
 class CifcWallSweptSolid
 {
 public:
@@ -10,9 +14,11 @@ public:
 	SdaiReal wallHeight;
 	SdaiReal wallWidth;
 
-	SdaiReal startCoordinates[3];
+	Point3d startCoordinates;
 	SdaiReal wallDirection[2];
 	SdaiString wallEdgeType;
+
+	/*std::vector<Face> getFaces();*/
 
 };
 
