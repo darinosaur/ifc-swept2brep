@@ -62,13 +62,13 @@ int Cinterpreter::m_getSite(void)
 int Cinterpreter::m_getWall(void)
 {
 	int ItemCount = 0;
-	SdaiIterator NodeIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcWallStandardCase");
+	SdaiIterator WallIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcWallStandardCase");
 
-	while(SdaiInstance STEPNodeInstance = sdaiextGetInstanceByIterator(NodeIterator))
+	while(SdaiInstance STEPWallInstance = sdaiextGetInstanceByIterator(WallIterator))
 	{
 		CifcWallSweptSolid *Wall = new CifcWallSweptSolid;
 		SdaiInstance ObjectPlacementInstance = NULL;
-		sdaiGetAttrBN(STEPNodeInstance, "ObjectPlacement", sdaiINSTANCE, &ObjectPlacementInstance);
+		sdaiGetAttrBN(STEPWallInstance, "ObjectPlacement", sdaiINSTANCE, &ObjectPlacementInstance);
 		SdaiInstance RelativePlacementInstance = NULL;
 		sdaiGetAttrBN(ObjectPlacementInstance, "RelativePlacement", sdaiINSTANCE, &RelativePlacementInstance);
 		SdaiInstance LocationInstance = NULL;
@@ -101,14 +101,15 @@ int Cinterpreter::m_getWall(void)
 			sdaiGetAggrByIterator(DirectionIterator, sdaiREAL, &Wall->wallDirection[1]);
 			sdaiDeleteIterator(DirectionIterator);
 		}
-		// sdaiNext(NodeIterator);
+		// sdaiNext(WallIterator);
 
 		SdaiInstance RepresentationInstance = NULL;
-		sdaiGetAttrBN(STEPNodeInstance, "Representation", sdaiINSTANCE, &RepresentationInstance);
+		sdaiGetAttrBN(STEPWallInstance, "Representation", sdaiINSTANCE, &RepresentationInstance);
 		SdaiIterator RepresentationIterator = sdaiextGetAttributeIterator(RepresentationInstance, "Representations");
 		sdaiBeginning(RepresentationIterator);
 		sdaiNext(RepresentationIterator);
 		sdaiNext(RepresentationIterator);
+
 		SdaiInstance ShapeRepresentationInstance=0;
 		sdaiGetAggrByIterator(RepresentationIterator, sdaiINSTANCE, &ShapeRepresentationInstance);
 		SdaiIterator ItemsIterator = sdaiextGetAttributeIterator(ShapeRepresentationInstance, "Items");
@@ -117,15 +118,18 @@ int Cinterpreter::m_getWall(void)
 		SdaiInstance ExtrudedAreaInstance=0;
 		sdaiGetAggrByIterator(ItemsIterator, sdaiINSTANCE, &ExtrudedAreaInstance);
 		SdaiInstance SweptAreaInstance = NULL;
+
+		sdaiGetAttrBN(ExtrudedAreaInstance, "Depth", sdaiREAL,  &Wall->wallHeight);
 		sdaiGetAttrBN(ExtrudedAreaInstance, "SweptArea", sdaiINSTANCE, &SweptAreaInstance);
 		sdaiGetAttrBN(SweptAreaInstance, "XDim", sdaiREAL, &Wall->wallLength);//длина
+		sdaiGetAttrBN(SweptAreaInstance, "YDim", sdaiREAL, &Wall->wallWidth);
 
 		sdaiDeleteIterator(ItemsIterator);
 		sdaiDeleteIterator(RepresentationIterator);
 		ItemCount++;
 
 	}
-	sdaiDeleteIterator(NodeIterator);
+	sdaiDeleteIterator(WallIterator);
 	return ItemCount;
 }
 

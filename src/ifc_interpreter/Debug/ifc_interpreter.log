@@ -1,4 +1,4 @@
-﻿Build started 05.06.2017 18:58:11.
+﻿Build started 05.06.2017 23:38:36.
      1>Project "C:\constrData\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\ifc_interpreter.lastbuildstate".
@@ -27,7 +27,7 @@
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(18) : see previous definition of 'm_getSite'
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(63): warning C4273: 'Cinterpreter::m_getWall' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(20) : see previous definition of 'm_getWall'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(133): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(137): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(21) : see previous definition of 'm_getStorey'
          CifcWallSweptSolid.cpp
          Generating Code...
@@ -69,4 +69,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.17
+Time Elapsed 00:00:05.37

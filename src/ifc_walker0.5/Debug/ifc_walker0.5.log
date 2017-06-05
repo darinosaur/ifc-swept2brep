@@ -1,4 +1,4 @@
-﻿Build started 05.06.2017 18:57:05.
+﻿Build started 05.06.2017 23:36:04.
      1>Project "C:\constrData\ifc-swept2brep\src\ifc_walker0.5\ifc_walker0.5.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ifc_walker0.5.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -6,7 +6,15 @@
        Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
        ClCompile:
          All outputs are up-to-date.
-         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Владимир\Documents\Visual Studio 2010\Projects\ifc_walker0.5 — копия\ifc_interpreter\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_walker0.5.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt ifc_walker0.5.cpp /clr:nostdlib 
+         ifc_walker0.5.cpp
+     1>ifc_walker0.5.cpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(223): warning C4244: 'initializing' : conversion from 'wchar_t' to 'char', possible loss of data
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(241): warning C4244: '=' : conversion from 'wchar_t' to 'char', possible loss of data
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(278): warning C4244: 'initializing' : conversion from 'wchar_t' to 'char', possible loss of data
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(297): warning C4244: '=' : conversion from 'wchar_t' to 'char', possible loss of data
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(345): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\time.inl(112) : see declaration of 'localtime'
          All outputs are up-to-date.
        CoreResGen:
          No resources are out of date with respect to their source files. Skipping resource generation.
@@ -29,4 +37,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.49
+Time Elapsed 00:00:01.89
