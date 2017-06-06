@@ -35,22 +35,22 @@ std::vector<Face> CifcWallSweptSolid::getFaces()
 		Vertices[i] = Vertices[i] + startPnt;
 	}
 	
-	Face F1 = {Vertices[1],Vertices[2],Vertices[3],Vertices[4]};
+	Face F1 = {Vertices[0],Vertices[1],Vertices[2],Vertices[3]};
 	FaceSet.push_back(F1);
 
-	Face F2 = {Vertices[1],Vertices[2],Vertices[5],Vertices[6]};
+	Face F2 = {Vertices[0],Vertices[1],Vertices[4],Vertices[5]};
 	FaceSet.push_back(F2);
 
-	Face F3 = {Vertices[2],Vertices[3],Vertices[6],Vertices[7]};
+	Face F3 = {Vertices[1],Vertices[2],Vertices[5],Vertices[6]};
 	FaceSet.push_back(F3);
 
-	Face F4 = {Vertices[3],Vertices[4],Vertices[7],Vertices[8]};
+	Face F4 = {Vertices[2],Vertices[3],Vertices[6],Vertices[7]};
 	FaceSet.push_back(F4);
 
-	Face F5 = {Vertices[1],Vertices[4],Vertices[5],Vertices[8]};
+	Face F5 = {Vertices[0],Vertices[3],Vertices[4],Vertices[7]};
 	FaceSet.push_back(F5);
 
-	Face F6 = {Vertices[5],Vertices[6],Vertices[7],Vertices[8]};
+	Face F6 = {Vertices[4],Vertices[5],Vertices[6],Vertices[7]};
 	FaceSet.push_back(F6);
 
 	return FaceSet;
