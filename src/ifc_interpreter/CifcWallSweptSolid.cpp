@@ -2,6 +2,7 @@
 #include "CifcWallSweptSolid.h"
 
 
+
 CifcWallSweptSolid::CifcWallSweptSolid(void)
 {
 	this->wallDirection[0] = 1.0; 

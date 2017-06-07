@@ -99,7 +99,7 @@ int ReadSTEPFile(char *IFCName)
 {
 	// Interpreter = new Cinterpreter;
 	CInvariantXFI* InvariantXFI = CreateInvariantXFIForRead(IFCName);
-
+	Interpreter->m_ifcName = IFCName;
 
 	//
 	// Если файл удалось открыть:
@@ -122,6 +122,7 @@ int ReadSTEPFile(char *IFCName)
 					{
 						InvariantXFI->m_ReadSchemaNameFromFile();
 						SdaiModel Model = InvariantXFI->m_ReadXF();
+						sdaiAccessModel(Model, sdaiRW);
 						if (Model > 0) 
 						{
 							Interpreter->m_STEPModel = Model;
@@ -136,7 +137,6 @@ int ReadSTEPFile(char *IFCName)
 						{
 							Interpreter->m_STEPModel = Model;
 						}
-						int i = 6;
 						//хитрая проверка, потом
 					}
 				}

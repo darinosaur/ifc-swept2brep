@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Point3d.h"
+#include "ifcTranslator.h"
 
 class CifcWallSweptSolid
 {

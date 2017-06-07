@@ -1,4 +1,4 @@
-﻿Build started 06.06.2017 11:43:33.
+﻿Build started 07.06.2017 16:51:22.
      1>Project "C:\constrData\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\ifc_interpreter.lastbuildstate".
@@ -7,43 +7,47 @@
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /Iinclude2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\ifc_interpreter.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
          stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /Iinclude2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_interpreter.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CifcWallSweptSolid.cpp Cinterpreter.cpp Creceiver.cpp ifc_interpreter.cpp Point3d.cpp unicodeReader.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /Iinclude2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_interpreter.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CifcWallSweptSolid.cpp Cinterpreter.cpp Creceiver.cpp ifcTranslator.cpp ifc_interpreter.cpp Point3d.cpp unicodeReader.cpp
          unicodeReader.cpp
          Point3d.cpp
          ifc_interpreter.cpp
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.h(12): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         ifcTranslator.cpp
          Creceiver.cpp
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.cpp(6): warning C4273: 'Creceiver::Creceiver' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.h(6) : see previous definition of '{ctor}'
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.cpp(12): warning C4273: 'Creceiver::~Creceiver' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.h(7) : see previous definition of '{dtor}'
          Cinterpreter.cpp
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(17): warning C4273: 'Cinterpreter::m_getProjects' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(16) : see previous definition of 'm_getProjects'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(29): warning C4273: 'Cinterpreter::m_getBuilding' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(19) : see previous definition of 'm_getBuilding'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(33): warning C4273: 'Cinterpreter::m_getProject' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(17) : see previous definition of 'm_getProject'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(56): warning C4273: 'Cinterpreter::m_getSite' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(18) : see previous definition of 'm_getSite'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(63): warning C4273: 'Cinterpreter::m_getWall' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(20) : see previous definition of 'm_getWall'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(138): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(21) : see previous definition of 'm_getStorey'
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(18): warning C4273: 'Cinterpreter::m_getProjects' : inconsistent dll linkage
+                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(17) : see previous definition of 'm_getProjects'
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(31): warning C4273: 'Cinterpreter::m_getBuilding' : inconsistent dll linkage
+                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(20) : see previous definition of 'm_getBuilding'
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(35): warning C4273: 'Cinterpreter::m_getProject' : inconsistent dll linkage
+                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(18) : see previous definition of 'm_getProject'
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(59): warning C4273: 'Cinterpreter::m_getSite' : inconsistent dll linkage
+                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(19) : see previous definition of 'm_getSite'
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(66): warning C4273: 'Cinterpreter::m_getWall' : inconsistent dll linkage
+                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(21) : see previous definition of 'm_getWall'
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(157): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
+                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(22) : see previous definition of 'm_getStorey'
          CifcWallSweptSolid.cpp
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cifcwallsweptsolid.cpp(33): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cifcwallsweptsolid.cpp(34): warning C4018: '<' : signed/unsigned mismatch
          Generating Code...
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifctranslator.cpp(21): warning C4700: uninitialized local variable 'CfsFaceInstance' used
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifctranslator.cpp(28): warning C4700: uninitialized local variable 'PolygonInstance' used
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.cpp(168): warning C4715: 'ReadSTEPFile' : not all control paths return a value
        ResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /l"0x0409" /IDebug\ /nologo /fo"Debug\ifc_interpreter.res" ifc_interpreter.rc 
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\ifc_interpreter.dll.embed.manifest.res" Debug\ifc_interpreter_manifest.rc 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.dll" /INCREMENTAL /NOLOGO d_stkit.lib d_sdai.lib d_tfb.lib /DEF:".\ifc_interpreter.def" /MANIFEST /ManifestFile:"Debug\ifc_interpreter.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.lib" /MACHINE:X86 /DLL Debug\ifc_interpreter.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.dll" /INCREMENTAL /NOLOGO d_stkit.lib IFCEngine.lib d_sdai.lib d_tfb.lib /DEF:".\ifc_interpreter.def" /MANIFEST /ManifestFile:"Debug\ifc_interpreter.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.lib" /MACHINE:X86 /DLL Debug\ifc_interpreter.res
          Debug\ifc_interpreter.dll.embed.manifest.res
          Debug\CifcWallSweptSolid.obj
          Debug\Cinterpreter.obj
          Debug\Creceiver.obj
+         Debug\ifcTranslator.obj
          Debug\ifc_interpreter.obj
          Debug\Point3d.obj
          Debug\stdafx.obj
@@ -56,11 +60,12 @@
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\ifc_interpreter.dll.embed.manifest" /manifest Debug\ifc_interpreter.dll.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\ifc_interpreter.dll.embed.manifest.res" Debug\ifc_interpreter_manifest.rc 
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.dll" /INCREMENTAL /NOLOGO d_stkit.lib d_sdai.lib d_tfb.lib /DEF:".\ifc_interpreter.def" /MANIFEST /ManifestFile:"Debug\ifc_interpreter.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.lib" /MACHINE:X86 /DLL Debug\ifc_interpreter.res
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.dll" /INCREMENTAL /NOLOGO d_stkit.lib IFCEngine.lib d_sdai.lib d_tfb.lib /DEF:".\ifc_interpreter.def" /MANIFEST /ManifestFile:"Debug\ifc_interpreter.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_interpreter.lib" /MACHINE:X86 /DLL Debug\ifc_interpreter.res
          Debug\ifc_interpreter.dll.embed.manifest.res
          Debug\CifcWallSweptSolid.obj
          Debug\Cinterpreter.obj
          Debug\Creceiver.obj
+         Debug\ifcTranslator.obj
          Debug\ifc_interpreter.obj
          Debug\Point3d.obj
          Debug\stdafx.obj
@@ -73,4 +78,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.55
+Time Elapsed 00:00:17.12

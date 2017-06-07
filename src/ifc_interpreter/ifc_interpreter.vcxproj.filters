@@ -45,6 +45,9 @@
     <ClCompile Include="Point3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ifcTranslator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ifc_interpreter.h">
@@ -75,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Point3d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ifcTranslator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include2\IFCEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

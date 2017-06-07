@@ -57,7 +57,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>.\ifc_interpreter.def</ModuleDefinitionFile>
-      <AdditionalDependencies>d_stkit.lib;d_sdai.lib;d_tfb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d_stkit.lib;IFCEngine.lib;d_sdai.lib;d_tfb.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -104,6 +104,7 @@
     <ClCompile Include="CifcWallSweptSolid.cpp" />
     <ClCompile Include="Cinterpreter.cpp" />
     <ClCompile Include="Creceiver.cpp" />
+    <ClCompile Include="ifcTranslator.cpp" />
     <ClCompile Include="ifc_interpreter.cpp" />
     <ClCompile Include="Point3d.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -117,7 +118,9 @@
     <ClInclude Include="Cinterpreter.h" />
     <ClInclude Include="Creceiver.h" />
     <ClInclude Include="IFCInterpreterInterface.h" />
+    <ClInclude Include="ifcTranslator.h" />
     <ClInclude Include="ifc_interpreter.h" />
+    <ClInclude Include="include2\IFCEngine.h" />
     <ClInclude Include="Point3d.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />

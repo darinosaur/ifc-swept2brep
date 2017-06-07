@@ -9,6 +9,7 @@ public:
 	~Cinterpreter(void);
 	SdaiSession m_STEPSession;
 	SdaiModel m_STEPModel;
+	SdaiString m_ifcName;
 	SdaiSchemaInstance m_STEPSchemaInstance; 
 	SdaiModel m_HeaderModel;
 	Creceiver *m_Receiver;

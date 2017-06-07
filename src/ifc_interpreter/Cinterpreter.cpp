@@ -2,6 +2,7 @@
 #include "Creceiver.h"
 #include "Cinterpreter.h"
 #include "unicodeReader.h"
+#include "ifcTranslator.h"
 
 Cinterpreter::Cinterpreter(void)
 {
@@ -22,6 +23,7 @@ int Cinterpreter::m_getProjects()
 		Count++;
 		m_getProject(IFCProjectInstance);
 	}
+	sdaiCloseSession(m_STEPSession);
 	return Count;
 }
 
@@ -45,6 +47,7 @@ int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 		m_Receiver->m_Function(Str);
 
 		int WallsCount = m_getWall();
+
 	}
 
 
@@ -106,12 +109,21 @@ int Cinterpreter::m_getWall(void)
 		SdaiInstance RepresentationInstance = NULL;
 		sdaiGetAttrBN(STEPWallInstance, "Representation", sdaiINSTANCE, &RepresentationInstance);
 		SdaiIterator RepresentationIterator = sdaiextGetAttributeIterator(RepresentationInstance, "Representations");
+		SdaiList Representations;
+		sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &Representations);
+		
+		sdaiAppend(Representations, sdaiREAL, 1.0);
 		sdaiBeginning(RepresentationIterator);
 		sdaiNext(RepresentationIterator);
 		sdaiNext(RepresentationIterator);
 
-		SdaiInstance ShapeRepresentationInstance=0;
+		SdaiInstance ShapeRepresentationInstance = 0;
 		sdaiGetAggrByIterator(RepresentationIterator, sdaiINSTANCE, &ShapeRepresentationInstance);
+		SdaiString RepType;
+		sdaiGetAttrBN(ShapeRepresentationInstance, "RepresentationType", sdaiSTRING, &RepType); 
+
+		if ( RepType = "SweptSolid" )
+		{
 		SdaiIterator ItemsIterator = sdaiextGetAttributeIterator(ShapeRepresentationInstance, "Items");
 		sdaiBeginning(ItemsIterator);
 		sdaiNext(ItemsIterator);
@@ -128,9 +140,16 @@ int Cinterpreter::m_getWall(void)
 		sdaiDeleteIterator(RepresentationIterator);
 		ItemCount++;
 
-		std::vector<Face> TESTIK = Wall->getFaces();
+		std::vector<Face> WallFaces = Wall->getFaces();
+
+		createBrepWall(RepresentationInstance, WallFaces);
+
+	/*sdaiSaveModelBN(m_STEPModel, m_ifcName);*/
+		}
 	}
 	sdaiDeleteIterator(WallIterator);
+
+
 	return ItemCount;
 }
 
