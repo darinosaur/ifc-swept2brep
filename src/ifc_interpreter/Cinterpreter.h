@@ -22,4 +22,12 @@ public:
 	int IFCWALKER_EXTERNAL   m_getStorey(void);
 };
 
+void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> WallFaces, Cinterpreter *Interpreter);
+
+int ExportIntermediateSTEPFile(Cinterpreter *Interpreter);
+
+SdaiInstance createFace(std::vector<Face> FaceSet);
+
+SdaiInstance createCartesianPoint(Face F1, SdaiInstance &Instance);
+
 

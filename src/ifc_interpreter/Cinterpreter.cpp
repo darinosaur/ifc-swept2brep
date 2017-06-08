@@ -2,7 +2,6 @@
 #include "Creceiver.h"
 #include "Cinterpreter.h"
 #include "unicodeReader.h"
-#include "ifcTranslator.h"
 
 Cinterpreter::Cinterpreter(void)
 {
@@ -142,7 +141,7 @@ int Cinterpreter::m_getWall(void)
 
 		std::vector<Face> WallFaces = Wall->getFaces();
 
-		createBrepWall(RepresentationInstance, WallFaces);
+		createBrepWall(RepresentationInstance, WallFaces, this);
 
 	/*sdaiSaveModelBN(m_STEPModel, m_ifcName);*/
 		}
@@ -158,3 +157,63 @@ int Cinterpreter::m_getStorey(void)
 	//этаж
 	return 0;
 }
+
+void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> WallFaces, Cinterpreter *Interpreter)
+{
+	SdaiAggr RepresentationsAggr = -1;
+	sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &RepresentationsAggr ); 
+	// Попробовали получить уже существующий агрегатный атрибут
+	
+	if( RepresentationsAggr  <= 0)
+	{
+		RepresentationsAggr = sdaiCreateAggrBN(RepresentationInstance, "Representations"); 
+		// Если атрибута агрегатного не оказалось
+	}
+	SdaiInstance ShapeRepresentationInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IfcShapeRepresentation"); 
+	// Создался экземпляр того ентитя, который должен попасть в список
+	sdaiAdd(RepresentationsAggr, sdaiINSTANCE, ShapeRepresentationInstance ); //
+	int test = ExportIntermediateSTEPFile(Interpreter);
+	}
+
+int ExportIntermediateSTEPFile(Cinterpreter* Interpreter)
+//
+{
+	SdaiModel ExportedModel = Interpreter->m_STEPModel;
+	SdaiRep Repository = sdaiOpenRepositoryBN(Interpreter->m_STEPSession, "sdai00.rp");
+ SdaiSchema ModelSchema = -1;
+ sdaiGetAttrBN
+  (ExportedModel,"underlying_schema",sdaiINSTANCE,&ModelSchema);
+ SdaiSchemaInstance SchemaInstance = -1;
+ if(ModelSchema > 0)
+ {
+  SchemaInstance = sdaiCreateSchemaInstance("S1", ModelSchema, Repository);
+ }
+ if(SchemaInstance <= 0)
+ {
+  SchemaInstance = sdaiCreateSchemaInstanceBN("S1", "config_control_design", Repository);
+ }
+ sdaiAddModel(SchemaInstance, ExportedModel);
+
+ CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY2.ifc";
+//     STEPGenXF("out.stp", SchemaInstance);
+ STEPGenXF(HealedFileName.GetBuffer(), SchemaInstance);
+//
+// STEPDelete();
+ //Session = 0;
+ return -2;
+}
+
+SdaiInstance createFace(std::vector<Face> FaceSet)
+{
+	SdaiInstance CfsFaceInstance;
+
+return CfsFaceInstance;
+}
+
+SdaiInstance createCartesianPoint(Face F1, SdaiInstance &Instance)
+{
+	SdaiInstance PolygonInstance;
+
+	return PolygonInstance;
+}
+
