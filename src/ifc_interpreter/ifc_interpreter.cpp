@@ -152,8 +152,7 @@ int ReadSTEPFile(char *IFCName)
 		if(Interpreter->m_STEPModel)
 		{
 			SdaiSchema SchemaOfLoadedModel = 0;
-			sdaiGetAttrBN
-				(Interpreter->m_STEPModel,"underlying_schema", sdaiINSTANCE,&SchemaOfLoadedModel);
+			sdaiGetAttrBN(Interpreter->m_STEPModel, "underlying_schema", sdaiINSTANCE, &SchemaOfLoadedModel);
 			Interpreter->m_STEPSchemaInstance = sdaiCreateSchemaInstance("S1", SchemaOfLoadedModel, InvariantXFI->m_Repository);
 			sdaiAddModel(Interpreter->m_STEPSchemaInstance, Interpreter->m_STEPModel);
 		}
@@ -176,7 +175,7 @@ int getProjects(Creceiver *Receiver)
 		Interpreter->m_Receiver = Receiver;
 
 		Count = Interpreter->m_getProjects();
-		Check = Interpreter->m_getBuilding();
+		// Check = Interpreter->m_getBuilding();
 	}
 	//возвращаем кол-во проектов (счетчик)
 	return Count;

@@ -17,13 +17,13 @@ namespace ifc_walker05 {
 	/// Summary for Form1
 	/// </summary>	
 
-	class Cintermediate
-	{
-	public:
-		Cintermediate(void){
-			Title = nullptr;};
-			char* Title;
-	};
+	//class Cintermediate
+	//{
+	//public:
+	//	Cintermediate(void){
+	//		Title = nullptr;};
+	//		char* Title;
+	//};
 
 
 	Cintermediate* Intermediate = nullptr;
@@ -213,39 +213,14 @@ namespace ifc_walker05 {
 
 				 if ( openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK )
 				 {
-
-					 //		   string FlNm = openFileDialog1->FileName;
-					 //memcpy ((const char*)&NAMEIFC[0], FlNm, strlen(FlNm)); 
-					 int size = 10;
-					 //  String s = openFileDialog1->FileName.get();
-					 for(size = 0; size < 128;size++)
-					 {
-						 char WhatIs = openFileDialog1->FileName[size];
-						 if(openFileDialog1->FileName[size] == 'r' || openFileDialog1->FileName[size] == 'R')
-						 {
-							 size++;
-							 if(openFileDialog1->FileName[size] == 'p' || openFileDialog1->FileName[size] == 'P')
-							 {size++;
-							 if(openFileDialog1->FileName[size] == 'd' || openFileDialog1->FileName[size] == 'D')
-							 {
-								 size++;
-								 break;
-							 }
-							 }
-
-						 }
-					 }
-					 for(int i = 0; i < size; i++)
+					 for( int i = 0; i < openFileDialog1->FileName->Length; i++)
 					 {
 
 						 NAMERPD[i] = openFileDialog1->FileName[i];
 					 }
-
-
-					 //            myStream->Close();
 				 }
 
-				 //
+				
 				 if(OpenRepository(NAMERPD)) 
 				 {
 					 button2->Enabled = true;
@@ -272,26 +247,7 @@ namespace ifc_walker05 {
 
 				 if ( openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK )
 				 {
-					 int size = 10;
-					 for(size = 0; size < 128;size++)
-					 {
-						 char WhatIs = openFileDialog1->FileName[size];
-						 if(openFileDialog1->FileName[size] == 'i' || openFileDialog1->FileName[size] == 'I')
-						 {
-							 size++;
-							 if(openFileDialog1->FileName[size] == 'f' || openFileDialog1->FileName[size] == 'F')
-							 {
-								 size++;
-								 if(openFileDialog1->FileName[size] == 'c' || openFileDialog1->FileName[size] == 'C')
-								 {
-									 size++;
-									 break;
-								 }
-							 }
-						 }
-					 }
-
-					 for(int i = 0; i < size; i++)
+					 for(int i = 0; i < openFileDialog1->FileName->Length; i++)
 					 {
 
 						 NAMEIFC[i] = openFileDialog1->FileName[i];

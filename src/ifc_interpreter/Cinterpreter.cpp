@@ -160,43 +160,43 @@ int Cinterpreter::m_getStorey(void)
 
 void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> WallFaces, Cinterpreter *Interpreter)
 {
-	SdaiAggr RepresentationsAggr = -1;
-	sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &RepresentationsAggr ); 
-	// Попробовали получить уже существующий агрегатный атрибут
-	
-	if( RepresentationsAggr  <= 0)
-	{
-		RepresentationsAggr = sdaiCreateAggrBN(RepresentationInstance, "Representations"); 
-		// Если атрибута агрегатного не оказалось
-	}
-	SdaiInstance ShapeRepresentationInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IfcShapeRepresentation"); 
-	// Создался экземпляр того ентитя, который должен попасть в список
-	sdaiAdd(RepresentationsAggr, sdaiINSTANCE, ShapeRepresentationInstance ); //
+	//SdaiAggr RepresentationsAggr = -1;
+	//sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &RepresentationsAggr ); 
+	//// Попробовали получить уже существующий агрегатный атрибут
+	//
+	//if( RepresentationsAggr  <= 0)
+	//{
+	//	RepresentationsAggr = sdaiCreateAggrBN(RepresentationInstance, "Representations"); 
+	//	// Если атрибута агрегатного не оказалось
+	//}
+	//SdaiInstance ShapeRepresentationInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IfcShapeRepresentation"); 
+	//// Создался экземпляр того ентитя, который должен попасть в список
+	//sdaiAdd(RepresentationsAggr, sdaiINSTANCE, ShapeRepresentationInstance ); //
 	int test = ExportIntermediateSTEPFile(Interpreter);
 	}
 
 int ExportIntermediateSTEPFile(Cinterpreter* Interpreter)
 //
 {
-	SdaiModel ExportedModel = Interpreter->m_STEPModel;
-	SdaiRep Repository = sdaiOpenRepositoryBN(Interpreter->m_STEPSession, "sdai00.rp");
- SdaiSchema ModelSchema = -1;
- sdaiGetAttrBN
-  (ExportedModel,"underlying_schema",sdaiINSTANCE,&ModelSchema);
- SdaiSchemaInstance SchemaInstance = -1;
- if(ModelSchema > 0)
- {
-  SchemaInstance = sdaiCreateSchemaInstance("S1", ModelSchema, Repository);
- }
- if(SchemaInstance <= 0)
- {
-  SchemaInstance = sdaiCreateSchemaInstanceBN("S1", "config_control_design", Repository);
- }
- sdaiAddModel(SchemaInstance, ExportedModel);
+	//SdaiModel ExportedModel = Interpreter->m_STEPModel;
+	//SdaiRep Repository = sdaiOpenRepositoryBN(Interpreter->m_STEPSession, "sdai00.rp");
+ //SdaiSchema ModelSchema = -1;
+ //sdaiGetAttrBN
+ // (ExportedModel,"underlying_schema",sdaiINSTANCE,&ModelSchema);
+ //SdaiSchemaInstance SchemaInstance = -1;
+ //if(ModelSchema > 0)
+ //{
+ // SchemaInstance = sdaiCreateSchemaInstance("S1", ModelSchema, Repository);
+ //}
+ //if(SchemaInstance <= 0)
+ //{
+ // SchemaInstance = sdaiCreateSchemaInstanceBN("S1", "config_control_design", Repository);
+ //}
+ //sdaiAddModel(SchemaInstance, ExportedModel);
 
- CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY2.ifc";
+ CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY3.ifc";
 //     STEPGenXF("out.stp", SchemaInstance);
- STEPGenXF(HealedFileName.GetBuffer(), SchemaInstance);
+ STEPGenXF(HealedFileName.GetBuffer(), Interpreter->m_STEPSchemaInstance);
 //
 // STEPDelete();
  //Session = 0;

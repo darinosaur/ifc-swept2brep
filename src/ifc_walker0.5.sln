@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ifc_walker0.5", "ifc_walker0.5\ifc_walker0.5.vcxproj", "{140D0588-6039-4743-B2DD-E5A02C699082}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3DF1C48E-FCD7-4D42-9041-B7A271B59E08} = {3DF1C48E-FCD7-4D42-9041-B7A271B59E08}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ifc_interpreter", "ifc_interpreter\ifc_interpreter.vcxproj", "{3DF1C48E-FCD7-4D42-9041-B7A271B59E08}"
 EndProject

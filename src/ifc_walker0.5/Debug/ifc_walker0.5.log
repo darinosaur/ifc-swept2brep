@@ -1,32 +1,23 @@
-﻿Build started 08.06.2017 15:29:54.
-     1>Project "C:\constrData\ifc-swept2brep\src\ifc_walker0.5\ifc_walker0.5.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\ifc_walker0.5.lastbuildstate".
-       InitializeBuildStatus:
+﻿Build started 09.06.2017 12:45:14.
+     1>Project "C:\constrData\ifc-swept2brep\src\ifc_walker0.5\ifc_walker0.5.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Creating "Debug\ifc_walker0.5.unsuccessfulbuild" because "AlwaysCreate" was specified.
        GenerateTargetFrameworkMonikerAttribute:
        Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Владимир\Documents\Visual Studio 2010\Projects\ifc_walker0.5 — копия\ifc_interpreter\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\ifc_walker0.5.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt stdafx.cpp /clr:nostdlib 
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Владимир\Documents\Visual Studio 2010\Projects\ifc_walker0.5 — копия\ifc_interpreter\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_walker0.5.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt AssemblyInfo.cpp ifc_walker0.5.cpp /clr:nostdlib 
-         AssemblyInfo.cpp
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Владимир\Documents\Visual Studio 2010\Projects\ifc_walker0.5 — копия\ifc_interpreter\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_walker0.5.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt ifc_walker0.5.cpp /clr:nostdlib 
          ifc_walker0.5.cpp
      1>ifc_walker0.5.cpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(223): warning C4244: 'initializing' : conversion from 'wchar_t' to 'char', possible loss of data
      1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(241): warning C4244: '=' : conversion from 'wchar_t' to 'char', possible loss of data
-     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(278): warning C4244: 'initializing' : conversion from 'wchar_t' to 'char', possible loss of data
-     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(297): warning C4244: '=' : conversion from 'wchar_t' to 'char', possible loss of data
-     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(345): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(278): warning C4244: '=' : conversion from 'wchar_t' to 'char', possible loss of data
+     1>c:\constrdata\ifc-swept2brep\src\ifc_walker0.5\Form1.h(326): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\time.inl(112) : see declaration of 'localtime'
-         Generating Code...
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\Users\Владимир\Documents\Visual Studio 2010\Projects\ifc_walker0.5 — копия\ifc_interpreter\include" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Владимир\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+         All outputs are up-to-date.
        CoreResGen:
-         "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /compile Form1.resX,Debug\ifc_walker05.Form1.resources
-         Processing resource file "Form1.resX" into "Debug\ifc_walker05.Form1.resources".
+         No resources are out of date with respect to their source files. Skipping resource generation.
        ResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"Debug\app.res" app.rc 
+         All outputs are up-to-date.
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\constrData\ifc-swept2brep\src\Debug\ifc_walker0.5.exe" /INCREMENTAL /NOLOGO ../Debug/ifc_interpreter.lib /ASSEMBLYRESOURCE:Debug\ifc_walker05.Form1.resources /MANIFEST /ManifestFile:"Debug\ifc_walker0.5.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\constrData\ifc-swept2brep\src\Debug\ifc_walker0.5.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\app.res
          Debug\AssemblyInfo.obj
@@ -40,8 +31,8 @@
        FinalizeBuildStatus:
          Deleting file "Debug\ifc_walker0.5.unsuccessfulbuild".
          Touching "Debug\ifc_walker0.5.lastbuildstate".
-     1>Done Building Project "C:\constrData\ifc-swept2brep\src\ifc_walker0.5\ifc_walker0.5.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\constrData\ifc-swept2brep\src\ifc_walker0.5\ifc_walker0.5.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.42
+Time Elapsed 00:00:02.62
