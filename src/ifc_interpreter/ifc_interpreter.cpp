@@ -169,7 +169,7 @@ int ReadSTEPFile(char *IFCName)
 int getProjects(Creceiver *Receiver)
 {
 	int Count = 0;
-	int Check = 0;
+	//int Check = 0;
 	if (Interpreter)
 	{
 		Interpreter->m_Receiver = Receiver;

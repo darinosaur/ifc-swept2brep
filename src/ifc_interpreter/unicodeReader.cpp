@@ -1118,29 +1118,3 @@ char UnicodeGetLetter(unsigned int DigitalValue)
 	}
 	return UnicodeLetter;
 }
-
-bool FindUnicode(SdaiString UniCode)
-{
-	char toRusString[1024] = "";
-	int unicodePosition = 0;
-	int i = 0;
-	int unicodeJump = 0;
-	for (int index = 0; index < 1024 ; index++)
-	{
-		if ((UniCode[index] == '//')&&(UniCode[index+1] == 'X')&&(UniCode[index+1] == '2'))
-		{
-			unicodePosition = index + 5;
-			//unicodePosition = index + 1;
-			//unicodeJump = UnicodeRead(UniCode, unicodePosition, &toRusString);
-			//i += unicodeJump;
-		}
-		else
-		{
-			toRusString[i] = UniCode[index];
-			i++;
-			index++;
-		}
-	}
-	return true;
-	//return toRusString;
-}

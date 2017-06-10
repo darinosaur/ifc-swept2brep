@@ -24,7 +24,7 @@ public:
 
 void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> WallFaces, Cinterpreter *Interpreter);
 
-int ExportIntermediateSTEPFile(Cinterpreter *Interpreter);
+int saveIFCFile(Cinterpreter *Interpreter);
 
 SdaiInstance createFace(std::vector<Face> FaceSet);
 

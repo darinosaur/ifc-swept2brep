@@ -34,21 +34,16 @@ int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 {
 	if(IFCProjectInstance)
 	{
-		/*if (m_Receiver && m_Receiver->m_Function)
-		m_Receiver->m_Function;*/
-		// SdaiIterator RootIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcRoot");
-
 		SdaiString Str = nullptr;
-
+	/*	SdaiString Str = "\\X2\\042104420430044204430441\\X0\\ \\X2\\043F0440043E0435043A04420430\\X0\\";*/ // testik
 		sdaiGetAttrBN(IFCProjectInstance, "Name", sdaiSTRING, &Str);
+		
 		Str = UnicodeRead(Str);
 
 		m_Receiver->m_Function(Str);
 
 		int WallsCount = m_getWall();
-
 	}
-
 
 	return 0;
 }
@@ -65,7 +60,8 @@ int Cinterpreter::m_getWall(void)
 {
 	int ItemCount = 0;
 	SdaiIterator WallIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcWallStandardCase");
-
+	
+		
 	while(SdaiInstance STEPWallInstance = sdaiextGetInstanceByIterator(WallIterator))
 	{
 		CifcWallSweptSolid *Wall = new CifcWallSweptSolid;
@@ -74,7 +70,6 @@ int Cinterpreter::m_getWall(void)
 		SdaiInstance RelativePlacementInstance = NULL;
 		sdaiGetAttrBN(ObjectPlacementInstance, "RelativePlacement", sdaiINSTANCE, &RelativePlacementInstance);
 		SdaiInstance LocationInstance = NULL;
-		//SdaiReal Coords [3] = {0.0, 0.0, 0.0};//координаты начальной точки
 		sdaiGetAttrBN(RelativePlacementInstance, "Location", sdaiINSTANCE, &LocationInstance);
 
 		if( LocationInstance )
@@ -111,7 +106,7 @@ int Cinterpreter::m_getWall(void)
 		SdaiList Representations;
 		sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &Representations);
 		
-		sdaiAppend(Representations, sdaiREAL, 1.0);
+		
 		sdaiBeginning(RepresentationIterator);
 		sdaiNext(RepresentationIterator);
 		sdaiNext(RepresentationIterator);
@@ -141,14 +136,12 @@ int Cinterpreter::m_getWall(void)
 
 		std::vector<Face> WallFaces = Wall->getFaces();
 
-		createBrepWall(RepresentationInstance, WallFaces, this);
-
-	/*sdaiSaveModelBN(m_STEPModel, m_ifcName);*/
+	createBrepWall(RepresentationInstance, WallFaces, this); 
 		}
 	}
 	sdaiDeleteIterator(WallIterator);
 
-
+	int test = saveIFCFile(this);
 	return ItemCount;
 }
 
@@ -160,46 +153,27 @@ int Cinterpreter::m_getStorey(void)
 
 void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> WallFaces, Cinterpreter *Interpreter)
 {
-	//SdaiAggr RepresentationsAggr = -1;
-	//sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &RepresentationsAggr ); 
-	//// Попробовали получить уже существующий агрегатный атрибут
-	//
-	//if( RepresentationsAggr  <= 0)
-	//{
-	//	RepresentationsAggr = sdaiCreateAggrBN(RepresentationInstance, "Representations"); 
-	//	// Если атрибута агрегатного не оказалось
-	//}
-	//SdaiInstance ShapeRepresentationInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IfcShapeRepresentation"); 
-	//// Создался экземпляр того ентитя, который должен попасть в список
-	//sdaiAdd(RepresentationsAggr, sdaiINSTANCE, ShapeRepresentationInstance ); //
-	int test = ExportIntermediateSTEPFile(Interpreter);
+	SdaiAggr RepresentationsAggr = -1;
+	sdaiGetAttrBN(RepresentationInstance, "Representations", sdaiAGGR, &RepresentationsAggr ); 
+	// Попробовали получить уже существующий агрегатный атрибут
+	
+	if( RepresentationsAggr  <= 0)
+	{
+		RepresentationsAggr = sdaiCreateAggrBN(RepresentationInstance, "Representations"); 
+		// Если атрибута агрегатного не оказалось
+	}
+	SdaiInstance ShapeRepresentationInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IfcShapeRepresentation"); 
+	// Создался экземпляр того ентитя, который должен попасть в список
+	sdaiAdd(RepresentationsAggr, sdaiINSTANCE, ShapeRepresentationInstance ); 
+
 	}
 
-int ExportIntermediateSTEPFile(Cinterpreter* Interpreter)
-//
-{
-	//SdaiModel ExportedModel = Interpreter->m_STEPModel;
-	//SdaiRep Repository = sdaiOpenRepositoryBN(Interpreter->m_STEPSession, "sdai00.rp");
- //SdaiSchema ModelSchema = -1;
- //sdaiGetAttrBN
- // (ExportedModel,"underlying_schema",sdaiINSTANCE,&ModelSchema);
- //SdaiSchemaInstance SchemaInstance = -1;
- //if(ModelSchema > 0)
- //{
- // SchemaInstance = sdaiCreateSchemaInstance("S1", ModelSchema, Repository);
- //}
- //if(SchemaInstance <= 0)
- //{
- // SchemaInstance = sdaiCreateSchemaInstanceBN("S1", "config_control_design", Repository);
- //}
- //sdaiAddModel(SchemaInstance, ExportedModel);
+int saveIFCFile(Cinterpreter* Interpreter)
 
- CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY3.ifc";
-//     STEPGenXF("out.stp", SchemaInstance);
+{
+ CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY.ifc"; //ifcName
  STEPGenXF(HealedFileName.GetBuffer(), Interpreter->m_STEPSchemaInstance);
-//
-// STEPDelete();
- //Session = 0;
+
  return -2;
 }
 

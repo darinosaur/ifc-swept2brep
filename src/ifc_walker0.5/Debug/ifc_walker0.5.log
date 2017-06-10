@@ -1,4 +1,4 @@
-﻿Build started 09.06.2017 13:50:27.
+﻿Build started 10.06.2017 16:02:54.
      1>Project "C:\constrData\ifc-swept2brep\src\ifc_walker0.5\ifc_walker0.5.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ifc_walker0.5.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -37,4 +37,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.24
+Time Elapsed 00:00:01.48
