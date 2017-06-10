@@ -83,9 +83,6 @@
     <ClInclude Include="ifcTranslator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include2\IFCEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ifc_interpreter.rc">

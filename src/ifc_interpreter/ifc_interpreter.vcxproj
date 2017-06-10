@@ -120,7 +120,6 @@
     <ClInclude Include="IFCInterpreterInterface.h" />
     <ClInclude Include="ifcTranslator.h" />
     <ClInclude Include="ifc_interpreter.h" />
-    <ClInclude Include="include2\IFCEngine.h" />
     <ClInclude Include="Point3d.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />

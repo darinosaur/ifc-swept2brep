@@ -28,6 +28,6 @@ int saveIFCFile(Cinterpreter *Interpreter);
 
 SdaiInstance createFace(std::vector<Face> FaceSet);
 
-SdaiInstance createCartesianPoint(Face F1, SdaiInstance &Instance);
+SdaiInstance createCartesianPoint(Point3d *P, Cinterpreter *Interpreter);
 
-
+SdaiInstance getGeometricRepresentationContextInstance(Cinterpreter *Interpreter);

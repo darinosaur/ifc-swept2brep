@@ -1,10 +1,10 @@
-﻿Build started 10.06.2017 16:02:51.
+﻿Build started 10.06.2017 17:31:13.
      1>Project "C:\constrData\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ifc_interpreter.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /Iinclude2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_interpreter.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CifcWallSweptSolid.cpp Cinterpreter.cpp Creceiver.cpp ifcTranslator.cpp ifc_interpreter.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Iinclude /Iinclude2 /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\ifc_interpreter.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Cinterpreter.cpp
          Cinterpreter.cpp
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(17): warning C4273: 'Cinterpreter::m_getProjects' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(17) : see previous definition of 'm_getProjects'
@@ -12,28 +12,19 @@
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(20) : see previous definition of 'm_getBuilding'
      1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(34): warning C4273: 'Cinterpreter::m_getProject' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(18) : see previous definition of 'm_getProject'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(61): warning C4273: 'Cinterpreter::m_getSite' : inconsistent dll linkage
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(53): warning C4273: 'Cinterpreter::m_getSite' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(19) : see previous definition of 'm_getSite'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(68): warning C4273: 'Cinterpreter::m_getWall' : inconsistent dll linkage
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(60): warning C4273: 'Cinterpreter::m_getWall' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(21) : see previous definition of 'm_getWall'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(158): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(149): warning C4273: 'Cinterpreter::m_getStorey' : inconsistent dll linkage
                  c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.h(22) : see previous definition of 'm_getStorey'
-         Generating Code...
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(193): warning C4700: uninitialized local variable 'CfsFaceInstance' used
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(200): warning C4700: uninitialized local variable 'PolygonInstance' used
-         Compiling...
-         ifc_interpreter.cpp
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.h(12): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         ifcTranslator.cpp
-         Creceiver.cpp
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.cpp(6): warning C4273: 'Creceiver::Creceiver' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.h(6) : see previous definition of '{ctor}'
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.cpp(12): warning C4273: 'Creceiver::~Creceiver' : inconsistent dll linkage
-                 c:\constrdata\ifc-swept2brep\src\ifc_interpreter\creceiver.h(7) : see previous definition of '{dtor}'
-         CifcWallSweptSolid.cpp
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cifcwallsweptsolid.cpp(34): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
-     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\ifc_interpreter.cpp(167): warning C4715: 'ReadSTEPFile' : not all control paths return a value
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(181): warning C4101: 'ifcPolyLoopInstance' : unreferenced local variable
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(182): warning C4101: 'aggrPolygon' : unreferenced local variable
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(175): warning C4101: 'ifcFacetedBrepInstance' : unreferenced local variable
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(181): warning C4101: 'ifcFaceInstance' : unreferenced local variable
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(182): warning C4101: 'aggrBounds' : unreferenced local variable
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(181): warning C4101: 'ifcFaceOuterBoundInstance' : unreferenced local variable
+     1>c:\constrdata\ifc-swept2brep\src\ifc_interpreter\cinterpreter.cpp(201): warning C4700: uninitialized local variable 'CfsFaceInstance' used
        ResourceCompile:
          All outputs are up-to-date.
        ManifestResourceCompile:
@@ -62,4 +53,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.01
+Time Elapsed 00:00:01.70
