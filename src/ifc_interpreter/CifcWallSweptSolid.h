@@ -2,7 +2,6 @@
 
 #include <vector>
 #include "Point3d.h"
-#include "ifcTranslator.h"
 
 class CifcWallSweptSolid
 {
@@ -10,7 +9,6 @@ public:
 	CifcWallSweptSolid(void);
 	~CifcWallSweptSolid(void);
 
-	//rectangleProfileDef
 	SdaiReal wallLength;
 	SdaiReal wallHeight;
 	SdaiReal wallWidth;
@@ -20,6 +18,5 @@ public:
 	SdaiString wallEdgeType;
 
 	std::vector<Face> getFaces();
-
 };
 

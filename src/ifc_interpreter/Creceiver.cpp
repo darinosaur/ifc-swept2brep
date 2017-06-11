@@ -4,12 +4,9 @@
 
 Creceiver::Creceiver(void)
 {
-
 }
-
 
 Creceiver::~Creceiver(void)
 {
-
 }
 

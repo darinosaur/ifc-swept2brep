@@ -14,7 +14,6 @@
 
 // Cifc_interpreterApp
 // See ifc_interpreter.cpp for the implementation of this class
-//
 
 class Cifc_interpreterApp : public CWinApp
 {
@@ -27,6 +26,3 @@ public:
 
 	DECLARE_MESSAGE_MAP()
 };
-
-
-//bool OpenRepository(char *IFCName);

@@ -7,11 +7,9 @@ Cinterpreter::Cinterpreter(void)
 {
 }
 
-
 Cinterpreter::~Cinterpreter(void)
 {
 }
-
 
 int Cinterpreter::m_getProjects()
 {
@@ -30,12 +28,14 @@ int Cinterpreter::m_getBuilding(void)
 {
 	return true;
 }
+
 int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 {
 	if(IFCProjectInstance)
 	{
 		SdaiString Str = nullptr;
-	/*	SdaiString Str = "\\X2\\042104420430044204430441\\X0\\ \\X2\\043F0440043E0435043A04420430\\X0\\";*/ // testik
+		// testik
+		// SdaiString Str = "\\X2\\042104420430044204430441\\X0\\ \\X2\\043F0440043E0435043A04420430\\X0\\";*/
 		sdaiGetAttrBN(IFCProjectInstance, "Name", sdaiSTRING, &Str);
 		
 		Str = UnicodeRead(Str);
@@ -48,19 +48,16 @@ int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 	return 0;
 }
 
-
 int Cinterpreter::m_getSite(void)
 {
+	// для универсальности
 	return 0;
-	//для универсальности
 }
-
 
 int Cinterpreter::m_getWall(void)
 {
 	int ItemCount = 0;
 	SdaiIterator WallIterator = sdaiextGetExtentIterator(m_STEPModel, "IfcWallStandardCase");
-	
 		
 	while(SdaiInstance STEPWallInstance = sdaiextGetInstanceByIterator(WallIterator))
 	{
@@ -180,18 +177,14 @@ void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> Wall
 
 	 SdaiInstance ifcPolyLoopInstance, ifcFaceOuterBoundInstance, ifcFaceInstance;
 	 SdaiAggr aggrPolygon, aggrBounds;
-
-
-
-	}
+}
 
 int saveIFCFile(Cinterpreter* Interpreter)
-
 {
- CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY5.ifc"; //ifcName
- STEPGenXF(HealedFileName.GetBuffer(), Interpreter->m_STEPSchemaInstance);
+	CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY5.ifc";
+	STEPGenXF(HealedFileName.GetBuffer(), Interpreter->m_STEPSchemaInstance);
 
- return -2;
+	return -2;
 }
 
 SdaiInstance createFace(std::vector<Face> FaceSet)
@@ -219,16 +212,15 @@ SdaiInstance createCartesianPoint(Point3d *P, Cinterpreter *Interpreter)
 SdaiInstance getGeometricRepresentationContextInstance(Cinterpreter *Interpreter)
 {
     SdaiInstance ifcGeometricRepresentationContextInstance;
-        double  precision = 0.00001;
-        int     coordinateSpaceDimension = 3;
+    double  precision = 0.00001;
+    int     coordinateSpaceDimension = 3;
 
-		ifcGeometricRepresentationContextInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCGEOMETRICREPRESENTATIONCONTEXT");
+	ifcGeometricRepresentationContextInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCGEOMETRICREPRESENTATIONCONTEXT");
 
-		sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "ContextType", sdaiSTRING, "Model");
-		sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "CoordinateSpaceDimension", sdaiINTEGER, &coordinateSpaceDimension);
-		sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "Precision", sdaiREAL, &precision);
-	//	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "WorldCoordinateSystem", sdaiINSTANCE, (void*) getWorldCoordinateSystemInstance());
-    
+	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "ContextType", sdaiSTRING, "Model");
+	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "CoordinateSpaceDimension", sdaiINTEGER, &coordinateSpaceDimension);
+	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "Precision", sdaiREAL, &precision);
+	// sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "WorldCoordinateSystem", sdaiINSTANCE, (void*) getWorldCoordinateSystemInstance());
 
     return  ifcGeometricRepresentationContextInstance;
 }

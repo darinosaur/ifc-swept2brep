@@ -17,7 +17,8 @@ CifcWallSweptSolid::~CifcWallSweptSolid(void)
 
 std::vector<Face> CifcWallSweptSolid::getFaces()
 {
-	Point3d startPnt = this->startCoordinates;//начальная точка в глобальных координатах
+	// начальная точка в глобальных координатах
+	Point3d startPnt = this->startCoordinates;
 	std::vector<Point3d> Vertices;
 	std::vector<Face> FaceSet;
 

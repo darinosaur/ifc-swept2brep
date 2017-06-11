@@ -104,7 +104,6 @@
     <ClCompile Include="CifcWallSweptSolid.cpp" />
     <ClCompile Include="Cinterpreter.cpp" />
     <ClCompile Include="Creceiver.cpp" />
-    <ClCompile Include="ifcTranslator.cpp" />
     <ClCompile Include="ifc_interpreter.cpp" />
     <ClCompile Include="Point3d.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -118,7 +117,6 @@
     <ClInclude Include="Cinterpreter.h" />
     <ClInclude Include="Creceiver.h" />
     <ClInclude Include="IFCInterpreterInterface.h" />
-    <ClInclude Include="ifcTranslator.h" />
     <ClInclude Include="ifc_interpreter.h" />
     <ClInclude Include="Point3d.h" />
     <ClInclude Include="Resource.h" />
