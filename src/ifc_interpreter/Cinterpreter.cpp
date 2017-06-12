@@ -209,6 +209,19 @@ SdaiInstance createCartesianPoint(Point3d *P, Cinterpreter *Interpreter)
 	return	ifcCartesianPointInstance;
 }
 
+SdaiInstance getWorldCoordinateSystemInstance(Cinterpreter *Interpreter)
+{
+    Point3d point;
+	point.x = 0;
+	point.y = 0;
+	point.z = 0;
+
+	SdaiInstance ifcWorldCoordinateSystemInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCAXIS2PLACEMENT3D");
+    sdaiPutAttrBN(ifcWorldCoordinateSystemInstance, "Location", sdaiINSTANCE, createCartesianPoint(&point, Interpreter));
+
+    return ifcWorldCoordinateSystemInstance;
+}
+
 SdaiInstance getGeometricRepresentationContextInstance(Cinterpreter *Interpreter)
 {
     SdaiInstance ifcGeometricRepresentationContextInstance;
@@ -220,7 +233,7 @@ SdaiInstance getGeometricRepresentationContextInstance(Cinterpreter *Interpreter
 	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "ContextType", sdaiSTRING, "Model");
 	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "CoordinateSpaceDimension", sdaiINTEGER, &coordinateSpaceDimension);
 	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "Precision", sdaiREAL, &precision);
-	// sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "WorldCoordinateSystem", sdaiINSTANCE, (void*) getWorldCoordinateSystemInstance());
+	sdaiPutAttrBN(ifcGeometricRepresentationContextInstance, "WorldCoordinateSystem", sdaiINSTANCE, getWorldCoordinateSystemInstance(Interpreter));
 
     return  ifcGeometricRepresentationContextInstance;
 }
