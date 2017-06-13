@@ -175,8 +175,11 @@ void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> Wall
 	 ifcClosedShellInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCCLOSEDSHELL");
 	 aggrCfsFaces = sdaiCreateAggrBN(ifcClosedShellInstance, "CfsFaces");
 
-	 SdaiInstance ifcPolyLoopInstance, ifcFaceOuterBoundInstance, ifcFaceInstance;
-	 SdaiAggr aggrPolygon, aggrBounds;
+	 for( int i = 0;i < WallFaces.size() ; i++) // faces counter
+	 {
+		SdaiInstance ifcFaceInstance = createFaceInstance(WallFaces, Interpreter, i);
+		sdaiAdd(aggrCfsFaces, sdaiINSTANCE, ifcFaceInstance ); 
+	 }
 }
 
 int saveIFCFile(Cinterpreter* Interpreter)
@@ -187,11 +190,46 @@ int saveIFCFile(Cinterpreter* Interpreter)
 	return -2;
 }
 
-SdaiInstance createFace(std::vector<Face> FaceSet)
+SdaiInstance createFaceInstance(std::vector<Face> FaceSet, Cinterpreter* Interpreter, int faceNum)
 {
-	SdaiInstance CfsFaceInstance;
+	SdaiInstance ifcPolyLoopInstance = createPolyLoop(Interpreter, FaceSet, faceNum); 
+	
+	SdaiInstance ifcFaceOuterBoundInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCFACEOUTERBOUND");
+	    sdaiPutAttrBN(ifcFaceOuterBoundInstance, "Bound", sdaiINSTANCE, ifcPolyLoopInstance);
+        sdaiPutAttrBN(ifcFaceOuterBoundInstance, "Orientation", sdaiENUM, "T");
 
-return CfsFaceInstance;
+	SdaiInstance ifcFaceInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IfcFace"); 
+	
+
+	SdaiAggr aggrBounds = sdaiCreateAggrBN(ifcFaceInstance, "Bounds");
+	    sdaiAppend((int) aggrBounds, sdaiINSTANCE, ifcFaceOuterBoundInstance);
+
+		
+
+return ifcFaceInstance;
+}
+
+SdaiInstance createPolyLoop(Cinterpreter* Interpreter, std::vector<Face> FaceSet, int faceNum)
+{
+
+	std::vector<SdaiInstance> ifcPointInstances;
+
+	SdaiInstance ifcPolyLoopInstance;
+	ifcPolyLoopInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCPOLYLOOP");
+	SdaiAggr  aggrPolygon = sdaiCreateAggrBN(ifcPolyLoopInstance, "Polygon");
+
+	
+	ifcPointInstances.push_back(createCartesianPoint(&FaceSet[faceNum].P1, Interpreter));
+		sdaiAppend((int) aggrPolygon, sdaiINSTANCE, ifcPointInstances[0]);
+		
+		ifcPointInstances.push_back(createCartesianPoint(&FaceSet[faceNum].P2, Interpreter));
+		sdaiAppend((int) aggrPolygon, sdaiINSTANCE, ifcPointInstances[1]);
+		
+		ifcPointInstances.push_back(createCartesianPoint(&FaceSet[faceNum].P3, Interpreter));
+		sdaiAppend((int) aggrPolygon, sdaiINSTANCE, ifcPointInstances[2]);
+
+
+	return ifcPolyLoopInstance;
 }
 
 SdaiInstance createCartesianPoint(Point3d *P, Cinterpreter *Interpreter)
@@ -202,9 +240,9 @@ SdaiInstance createCartesianPoint(Point3d *P, Cinterpreter *Interpreter)
 	ifcCartesianPointInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCCARTESIANPOINT");
 
 	aggrCoordinates = sdaiCreateAggrBN(ifcCartesianPointInstance, "Coordinates");
-	sdaiAppend((int) aggrCoordinates, sdaiREAL, &P->x);
-	sdaiAppend((int) aggrCoordinates, sdaiREAL, &P->y);
-	sdaiAppend((int) aggrCoordinates, sdaiREAL, &P->z);
+	sdaiAppend(aggrCoordinates, sdaiREAL, P->x);
+	sdaiAppend(aggrCoordinates, sdaiREAL, P->y);
+	sdaiAppend(aggrCoordinates, sdaiREAL, P->z);
 
 	return	ifcCartesianPointInstance;
 }

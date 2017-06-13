@@ -31,3 +31,8 @@ SdaiInstance createFace(std::vector<Face> FaceSet);
 SdaiInstance createCartesianPoint(Point3d *P, Cinterpreter *Interpreter);
 
 SdaiInstance getGeometricRepresentationContextInstance(Cinterpreter *Interpreter);
+
+SdaiInstance createFaceInstance(std::vector<Face> FaceSet, Cinterpreter* Interpreter, int faceNum);
+
+SdaiInstance createPolyLoop(Cinterpreter* Interpreter, std::vector<Face> FaceSet, int faceNum);
+
