@@ -38,11 +38,14 @@ int Cinterpreter::m_getProject(SdaiInstance &IFCProjectInstance)
 		// SdaiString Str = "\\X2\\042104420430044204430441\\X0\\ \\X2\\043F0440043E0435043A04420430\\X0\\";*/
 		sdaiGetAttrBN(IFCProjectInstance, "Name", sdaiSTRING, &Str);
 		
-		Str = UnicodeRead(Str);
+		Str = UnicodeRead(Str); 
 
+		int WallsCount = m_getWall(); 
+
+		//Str = Str + (char)(WallsCount);
 		m_Receiver->m_Function(Str);
 
-		int WallsCount = m_getWall();
+		
 	}
 
 	return 0;
@@ -105,10 +108,14 @@ int Cinterpreter::m_getWall(void)
 		
 		
 		sdaiBeginning(RepresentationIterator);
-		sdaiNext(RepresentationIterator);
-		sdaiNext(RepresentationIterator);
 
 		SdaiInstance ShapeRepresentationInstance = 0;
+
+		sdaiNext(RepresentationIterator);
+
+		sdaiNext(RepresentationIterator);
+
+		
 		sdaiGetAggrByIterator(RepresentationIterator, sdaiINSTANCE, &ShapeRepresentationInstance);
 		SdaiString RepType;
 		sdaiGetAttrBN(ShapeRepresentationInstance, "RepresentationType", sdaiSTRING, &RepType); 
@@ -124,16 +131,22 @@ int Cinterpreter::m_getWall(void)
 
 		sdaiGetAttrBN(ExtrudedAreaInstance, "Depth", sdaiREAL,  &Wall->wallHeight);
 		sdaiGetAttrBN(ExtrudedAreaInstance, "SweptArea", sdaiINSTANCE, &SweptAreaInstance);
-		sdaiGetAttrBN(SweptAreaInstance, "XDim", sdaiREAL, &Wall->wallLength);//длина
-		sdaiGetAttrBN(SweptAreaInstance, "YDim", sdaiREAL, &Wall->wallWidth);
+		
+			if (sdaiIsKindOfBN(SweptAreaInstance,"IfcRectangleProfileDef"))
+			{
+				sdaiGetAttrBN(SweptAreaInstance, "XDim", sdaiREAL, &Wall->wallLength);//длина
+				sdaiGetAttrBN(SweptAreaInstance, "YDim", sdaiREAL, &Wall->wallWidth);
 
-		sdaiDeleteIterator(ItemsIterator);
-		sdaiDeleteIterator(RepresentationIterator);
-		ItemCount++;
+				sdaiDeleteIterator(ItemsIterator);
+				sdaiDeleteIterator(RepresentationIterator);
+				ItemCount++;
 
-		std::vector<Face> WallFaces = Wall->getFaces();
+				std::vector<Face> WallFaces = Wall->getFaces();
 
-	createBrepWall(RepresentationInstance, WallFaces, this); 
+				createBrepWall(RepresentationInstance, WallFaces, this); 
+			}
+			//else 
+				// AdvancedBrep)))))))000000
 		}
 	}
 	sdaiDeleteIterator(WallIterator);
@@ -180,11 +193,17 @@ void createBrepWall(SdaiInstance &RepresentationInstance, std::vector<Face> Wall
 		SdaiInstance ifcFaceInstance = createFaceInstance(WallFaces, Interpreter, i);
 		sdaiAdd(aggrCfsFaces, sdaiINSTANCE, ifcFaceInstance ); 
 	 }
+
+	 
+	ifcFacetedBrepInstance = sdaiCreateInstanceBN(Interpreter->m_STEPModel, "IFCFACETEDBREP");
+	sdaiPutAttrBN(ifcFacetedBrepInstance, "Outer", sdaiINSTANCE, ifcClosedShellInstance);
+	
+    sdaiAppend(aggrItems, sdaiINSTANCE, ifcFacetedBrepInstance);
 }
 
 int saveIFCFile(Cinterpreter* Interpreter)
 {
-	CString HealedFileName = "C:\\constrData\\constructionData\\etoSTENY5.ifc";
+	CString HealedFileName = (CString)Interpreter->m_ifcName;
 	STEPGenXF(HealedFileName.GetBuffer(), Interpreter->m_STEPSchemaInstance);
 
 	return -2;
